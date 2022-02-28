@@ -1,0 +1,165 @@
+name: pill_pal
+description: A new Flutter application.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  table_calendar: ^3.0.2
+  intl: ^0.17.0
+  #fab_circular_menu: ^1.0.0
+  #percent_indicator: "^2.1.7+2"
+  floor: ^1.1.0
+  sqflite: ^2.0.0+3
+  flutter_colorpicker: ^0.6.0
+  # Use with the Workmanger class for background jobs headless execution.
+  # workmanager: ^0.4.1
+  # Use with FlutterLocalNotificationsPlugin class for local push notifications.
+  flutter_local_notifications: ^8.2.0
+  flutter_native_timezone: ^2.0.0
+  #after_layout: ^1.1.0
+  shared_preferences: ^2.0.7
+  firebase_auth: ^3.3.4
+  firebase_core: ^1.10.6
+  fluttertoast: ^8.0.8
+  cloud_firestore: ^3.1.5
+  google_ml_kit: ^0.7.2
+  image_picker: ^0.8.4+2
+  provider: ^6.0.0
+  firebase_storage: ^10.2.4
+  carousel_pro_nullsafety: ^1.0.2
+  badges: ^2.0.2
+  backdrop: ^0.6.2
+  flutter_swiper_null_safety: ^1.0.2
+  flutter_staggered_grid_view: ^0.4.1
+  url_launcher: ^6.0.20
+  webview_flutter: ^3.0.0
+  uuid: ^3.0.5
+  wave: ^0.2.0
+  http: ^0.13.4
+  stripe_payment: ^1.1.4
+  google_sign_in: ^5.2.1
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  floor_generator: ^1.1.0
+  build_runner: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/
+    - assets/capsuleGroup.png
+    - assets/ic_launcher.png
+    - assets/roundedpill.png
+    - assets/landing3.png
+    - assets/medicineBottle.png
+    - assets/cabinet.png
+    - assets/pillpal.png
+    - assets/capsule.png
+    - assets/roundGroup.png
+    - assets/medicine.png
+    - assets/landing1.png
+    - assets/pill2.png
+    - assets/pill.png
+    - assets/calender.png
+    - assets/landing2.png
+    - assets/logo.png
+    - assets/presc_guide.png
+    - assets/images/addidas.jpeg
+    - assets/images/apple.jpeg
+    - assets/images/CatFurniture.jpeg
+    - assets/images/CatClothes.jpeg
+    - assets/images/CatBeauty.jpeg
+    - assets/images/CatWatches.jpeg
+    - assets/images/CatShoes.jpeg
+    - assets/images/CatPhones.png
+    - assets/images/CatLaptops.png
+    - assets/images/h&m.jpeg
+    - assets/images/emptycart.png
+    - assets/images/empty-wishlist.png
+    - assets/images/Dell.jpeg
+    - assets/images/shopping1.jpeg
+    - assets/images/samsung.jpeg
+    - assets/images/nike.jpeg
+    - assets/images/Huawei.jpeg
+    - assets/images/shopping2.jpeg
+    - assets/images/CatFacewash.jpg
+    - assets/images/CatHaircare.jpg
+    - assets/images/Catbaby.jpg
+    - assets/images/Catwomes.jpg
+    - assets/images/Cathealthdevices.jpg
+    - assets/images/Catfirstaid.jpg
+    - assets/images/Catpain.jpg
+    - assets/images/first-aid.gif
+    - assets/images/carousel3.jpg
+    - assets/images/carousel4.jpg
+    - assets/images/carousel1.jpg
+    - assets/images/carousel2.jpg
+
+
+
+
+
+  #   - images/a_dot_ham.jpeg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+
+     - family: Raleway
+       fonts:
+         - asset: fonts/Raleway-Black.ttf
+         - asset: fonts/Raleway-Bold.ttf
+         - asset: fonts/Raleway-ExtraBold.ttf
+         - asset: fonts/Raleway-ExtraLight.ttf
+         - asset: fonts/Raleway-Light.ttf
+         - asset: fonts/Raleway-Medium.ttf
+         - asset: fonts/Raleway-Regular.ttf
+         - asset: fonts/Raleway-SemiBold.ttf
+         - asset: fonts/Raleway-Thin.ttf
+
+  #         weight: 700
+
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages

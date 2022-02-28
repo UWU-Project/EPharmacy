@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "474586221288",
+    "project_id": "dileesha-3626c",
+    "storage_bucket": "dileesha-3626c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474586221288:android:b9f30ea690d563274ad75d",
+        "android_client_info": {
+          "package_name": "com.example.pill_pal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "474586221288-af48vr4tjb95bqu4sou081inqoar56ak.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pill_pal",
+            "certificate_hash": "b1e778b599ba77b375a2efdd52ca78f1b45e9236"
+          }
+        },
+        {
+          "client_id": "474586221288-3tvnfqiifpfvnanara140ghqecjjblp6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNdWJrTq_X0FybQwiyzY1kB4by6KR9kyE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "474586221288-3tvnfqiifpfvnanara140ghqecjjblp6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
