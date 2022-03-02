@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "474586221288",
-    "project_id": "dileesha-3626c",
-    "storage_bucket": "dileesha-3626c.appspot.com"
+    "project_number": "623376098818",
+    "project_id": "epharma-7256b",
+    "storage_bucket": "epharma-7256b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:474586221288:android:b9f30ea690d563274ad75d",
+        "mobilesdk_app_id": "1:623376098818:android:d9a8427c621f7aa6e5691b",
         "android_client_info": {
           "package_name": "com.example.pill_pal"
         }
       },
       "oauth_client": [
         {
-          "client_id": "474586221288-af48vr4tjb95bqu4sou081inqoar56ak.apps.googleusercontent.com",
+          "client_id": "623376098818-c1tqri6ut50vlrok3ih77s4lhls2s716.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.pill_pal",
-            "certificate_hash": "b1e778b599ba77b375a2efdd52ca78f1b45e9236"
+            "certificate_hash": "a2d76323c5130c37e46c9ef693b82eeba346990d"
           }
         },
         {
-          "client_id": "474586221288-3tvnfqiifpfvnanara140ghqecjjblp6.apps.googleusercontent.com",
+          "client_id": "623376098818-r8daa9h6b1nbiu1i07b9panlluhccdjj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDNdWJrTq_X0FybQwiyzY1kB4by6KR9kyE"
+          "current_key": "AIzaSyCuWR84nbtCBMyaIqWLXOXuOR6IGGsoAM4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "474586221288-3tvnfqiifpfvnanara140ghqecjjblp6.apps.googleusercontent.com",
+              "client_id": "623376098818-r8daa9h6b1nbiu1i07b9panlluhccdjj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
