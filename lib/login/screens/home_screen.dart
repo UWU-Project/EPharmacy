@@ -17,6 +17,7 @@ import 'package:pill_pal/pillreminder/pages/reminderAddPage/reminderAddPage.dart
 import 'package:pill_pal/screens/auth/auth_stream.dart';
 import 'package:pill_pal/screens/auth/signup_screen.dart';
 import 'package:pill_pal/screens/landing_screen.dart';
+import 'package:pill_pal/screens/orders/orders_screen.dart';
 import 'package:pill_pal/view/home_page.dart';
 import 'package:pill_pal/view/prescription_upload.dart';
 
@@ -96,12 +97,14 @@ class HomeNew extends StatelessWidget {
               reminderCheckDao: reminderCheckDao,
             ),
 
+            BottomNavScreen.routeName: (ctx) => const BottomNavScreen(),
             FeedsScreen.routeName: (ctx) => FeedsScreen(),
             SearchScreen.routeName: (ctx) => const SearchScreen(),
             CartScreen.routeName: (ctx) => const CartScreen(),
             UserScreen.routeName: (ctx) => const UserScreen(),
             BrandsNavRailScreen.routeName: (ctx) => const BrandsNavRailScreen(),
             WishlistScreen.routeName: (ctx) => const WishlistScreen(),
+            OrderScreen.routeName: (ctx) => const OrderScreen(),
             ProductDetailsScreen.routeName: (ctx) =>
             const ProductDetailsScreen(),
             CategoriesFeedScreen.routeName: (ctx) =>
