@@ -25,7 +25,7 @@ class WishlistProvider with ChangeNotifier {
     } else {
       _wishlistList.putIfAbsent(
         pId,
-        () => Wishlist(
+            () => Wishlist(
           cartId: DateTime.now().toIso8601String(),
           title: title,
           imageUrl: imageUrl,

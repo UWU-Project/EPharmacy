@@ -15,7 +15,9 @@ import 'package:pill_pal/pillreminder/pages/medicineEditPage/medicineEditPage.da
 import 'package:pill_pal/pillreminder/pages/medicineItemPage/medicineItemPage.dart';
 import 'package:pill_pal/pillreminder/pages/reminderAddPage/reminderAddPage.dart';
 import 'package:pill_pal/screens/auth/auth_stream.dart';
+import 'package:pill_pal/screens/auth/reset_password_screen.dart';
 import 'package:pill_pal/screens/auth/signup_screen.dart';
+import 'package:pill_pal/screens/inner_screens/upload_product_screen.dart';
 import 'package:pill_pal/screens/landing_screen.dart';
 import 'package:pill_pal/screens/orders/orders_screen.dart';
 import 'package:pill_pal/view/home_page.dart';
@@ -100,7 +102,7 @@ class HomeNew extends StatelessWidget {
             BottomNavScreen.routeName: (ctx) => const BottomNavScreen(),
             FeedsScreen.routeName: (ctx) => FeedsScreen(),
             SearchScreen.routeName: (ctx) => const SearchScreen(),
-            CartScreen.routeName: (ctx) => const CartScreen(),
+            CartScreen.routeName: (ctx) => CartScreen(),
             UserScreen.routeName: (ctx) => const UserScreen(),
             BrandsNavRailScreen.routeName: (ctx) => const BrandsNavRailScreen(),
             WishlistScreen.routeName: (ctx) => const WishlistScreen(),
@@ -109,6 +111,9 @@ class HomeNew extends StatelessWidget {
             const ProductDetailsScreen(),
             CategoriesFeedScreen.routeName: (ctx) =>
             const CategoriesFeedScreen(),
+            UploadProductScreen.routeName: (ctx) => UploadProductScreen(),
+            ResetPasswordScreen.routeName: (ctx) => ResetPasswordScreen(),
+
 
             // LandingScreen.routeName: (ctx) => const LandingScreen(),
             // LoginScreen.routeName: (ctx) => LoginScreen(),

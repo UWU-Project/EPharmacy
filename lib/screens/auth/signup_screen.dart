@@ -93,10 +93,8 @@ class _SignupScreenState extends State<SignupScreen> {
           'joinedDate': formattedDate,
           // 'createdAt': TimeStamp.now()
         });
-        Navigator.canPop(context) ? Navigator.pop(context) : null;
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => Landing1()));
 
+        Navigator.canPop(context) ? Navigator.pop(context) : null;
       }
     } catch (error) {
       _globalMethods.authDialog(context, error.toString());
@@ -311,7 +309,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 child: TextButton(
                   onPressed: () {
                     Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (_) => const LoginScreen()));
+                        .pushReplacementNamed(LoginScreen.routeName);
                   },
                   child: Text(
                     'Login to Your Account',

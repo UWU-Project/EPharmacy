@@ -65,9 +65,9 @@ class PopularProducts extends StatelessWidget {
                       icon: wp.wishlistList.containsKey(productAttrribute.id)
                           ? Icon(Icons.favorite, color: Colors.red)
                           : Icon(
-                              Icons.favorite,
-                              color: Colors.white,
-                            ),
+                        Icons.favorite,
+                        color: Colors.white,
+                      ),
                     ),
                   );
                 }),
@@ -78,7 +78,7 @@ class PopularProducts extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: Text(
-                        '\Rs ${productAttrribute.price}',
+                        '\$ ${productAttrribute.price}',
                         style: TextStyle(fontSize: 16),
                       ),
                     ),
@@ -93,7 +93,7 @@ class PopularProducts extends StatelessWidget {
                 ' ${productAttrribute.title}',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(fontSize: 15),
+                style: const TextStyle(fontSize: 20),
               ),
             ),
             const SizedBox(height: 10),
@@ -107,25 +107,25 @@ class PopularProducts extends StatelessWidget {
                       ' ${productAttrribute.description} ',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(fontSize: 12),
+                      style: const TextStyle(fontSize: 18),
                     ),
                   ),
                   InkWell(
                     onTap:
-                        cartProvider.cartList.containsKey(productAttrribute.id)
-                            ? () {}
-                            : () {
-                                cartProvider.addToCart(
-                                  productAttrribute.id,
-                                  productAttrribute.title,
-                                  productAttrribute.imageUrl,
-                                  productAttrribute.price,
-                                );
-                              },
+                    cartProvider.cartList.containsKey(productAttrribute.id)
+                        ? () {}
+                        : () {
+                      cartProvider.addToCart(
+                        productAttrribute.id,
+                        productAttrribute.title,
+                        productAttrribute.imageUrl,
+                        productAttrribute.price,
+                      );
+                    },
                     child:
-                        cartProvider.cartList.containsKey(productAttrribute.id)
-                            ? Icon(Icons.check)
-                            : Icon(Icons.add_shopping_cart),
+                    cartProvider.cartList.containsKey(productAttrribute.id)
+                        ? Icon(Icons.check)
+                        : Icon(Icons.add_shopping_cart),
                   ),
                 ],
               ),

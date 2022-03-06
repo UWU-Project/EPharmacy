@@ -6,17 +6,17 @@ class MyAppTheme {
     return ThemeData(
       brightness: isDark ? Brightness.dark : Brightness.light,
       appBarTheme: AppBarTheme(
-        backgroundColor: isDark ? const Color(0xFF181818) : Colors.green,
+        backgroundColor: isDark ? const Color(0xFF181818) : Colors.deepPurple,
       ),
       colorScheme: isDark
           ? const ColorScheme.dark(
-              onSecondary: Colors.white,
-            )
+        onSecondary: Colors.white,
+      )
           : const ColorScheme.light(
-              onSecondary: Colors.white,
-            ),
+        onSecondary: Colors.white,
+      ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.deepPurpleAccent,
       ),
     );
   }

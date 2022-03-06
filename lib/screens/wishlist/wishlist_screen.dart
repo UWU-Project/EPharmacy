@@ -18,34 +18,34 @@ class WishlistScreen extends StatelessWidget {
 
     return wishlistProvider.wishlistList.isEmpty
         ? const Scaffold(
-      body: EmptyWishlist(),
-    )
+            body: EmptyWishlist(),
+          )
         : Scaffold(
-      appBar: AppBar(
-        title: Text('Wishlist (${wishlistProvider.wishlistList.length})'),
-        actions: [
-          IconButton(
-            onPressed: () async {
-              await globalMethods.showDialogue(
-                context,
-                    () => wishlistProvider.clearCart(),
-              );
-            },
-            icon: const Icon(Icons.delete),
-          ),
-        ],
-      ),
-      body: ListView.builder(
-        itemCount: wishlistProvider.wishlistList.length,
-        itemBuilder: (ctx, i) {
-          return ChangeNotifierProvider.value(
-            value: wishlistProvider.wishlistList.values.toList()[i],
-            child: FullWishlist(
-              pId: wishlistProvider.wishlistList.keys.toList()[i],
+            appBar: AppBar(
+              title: Text('Wishlist (${wishlistProvider.wishlistList.length})'),
+              actions: [
+                IconButton(
+                  onPressed: () async {
+                    await globalMethods.showDialogue(
+                      context,
+                      () => wishlistProvider.clearCart(),
+                    );
+                  },
+                  icon: const Icon(Icons.delete),
+                ),
+              ],
+            ),
+            body: ListView.builder(
+              itemCount: wishlistProvider.wishlistList.length,
+              itemBuilder: (ctx, i) {
+                return ChangeNotifierProvider.value(
+                  value: wishlistProvider.wishlistList.values.toList()[i],
+                  child: FullWishlist(
+                    pId: wishlistProvider.wishlistList.keys.toList()[i],
+                  ),
+                );
+              },
             ),
           );
-        },
-      ),
-    );
   }
 }

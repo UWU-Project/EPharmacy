@@ -140,12 +140,12 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
           onPressed: _trySubmit,
           child: _isLoading
               ? Center(
-                  child: CircularProgressIndicator(),
-                )
+            child: CircularProgressIndicator(),
+          )
               : Text(
-                  'S U B M i T',
-                  style: TextStyle(color: Colors.white),
-                ),
+            'S U B M i T',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ),
       body: SafeArea(
@@ -161,25 +161,25 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
                       Expanded(
                         child: _image == null
                             ? Container(
-                                height: 200,
-                                width: 200,
-                                decoration: BoxDecoration(
-                                  border:
-                                      Border.all(width: 2, color: Colors.grey),
-                                ),
-                              )
+                          height: 200,
+                          width: 200,
+                          decoration: BoxDecoration(
+                            border:
+                            Border.all(width: 2, color: Colors.grey),
+                          ),
+                        )
                             : Container(
-                                height: 200,
-                                width: 200,
-                                decoration: BoxDecoration(
-                                  border:
-                                      Border.all(width: 2, color: Colors.grey),
-                                ),
-                                child: Image.file(
-                                  _image!,
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
+                          height: 200,
+                          width: 200,
+                          decoration: BoxDecoration(
+                            border:
+                            Border.all(width: 2, color: Colors.grey),
+                          ),
+                          child: Image.file(
+                            _image!,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                       ),
                       Column(
                         children: [

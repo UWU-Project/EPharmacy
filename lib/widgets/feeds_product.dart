@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:pill_pal/models%20&%20providers/product.dart';
@@ -37,8 +39,8 @@ class _FeedsProductState extends State<FeedsProduct> {
                   Center(
                     child: Container(
                       constraints: BoxConstraints(
-                          minHeight: 170,
-                          maxHeight: MediaQuery.of(context).size.height * 0.22),
+                          minHeight: Platform.isIOS ? 170 : 140,
+                          maxHeight: MediaQuery.of(context).size.height * 0.21),
                       child: Center(
                         child: Image.network(productAttribute.imageUrl),
                       ),
@@ -55,7 +57,7 @@ class _FeedsProductState extends State<FeedsProduct> {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '\Rs ${productAttribute.price}',
+                    '\$ ${productAttribute.price}',
                     maxLines: 1,
                     style: const TextStyle(
                       fontSize: 16,
@@ -65,7 +67,6 @@ class _FeedsProductState extends State<FeedsProduct> {
                   ),
                   const SizedBox(height: 4),
                   Row(
-
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -102,10 +103,10 @@ class _FeedsProductState extends State<FeedsProduct> {
             toAnimate: true,
             animationType: BadgeAnimationType.slide,
             shape: BadgeShape.square,
-            badgeColor: Colors.blueAccent,
+            badgeColor: Colors.deepPurpleAccent,
             borderRadius: BorderRadius.circular(8),
             badgeContent:
-                const Text('New', style: TextStyle(color: Colors.white)),
+            const Text('New', style: TextStyle(color: Colors.white)),
           ),
         ],
       ),

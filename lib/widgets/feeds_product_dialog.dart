@@ -33,13 +33,13 @@ class FeedsProductDialog extends StatelessWidget {
                   },
                   icon: wp.wishlistList.containsKey(product.id)
                       ? Icon(
-                          Icons.favorite,
-                          color: Colors.red,
-                        )
+                    Icons.favorite,
+                    color: Colors.red,
+                  )
                       : Icon(
-                          Icons.favorite,
-                          color: Colors.white,
-                        ),
+                    Icons.favorite,
+                    color: Colors.white,
+                  ),
                 ),
               );
             }),
@@ -57,13 +57,13 @@ class FeedsProductDialog extends StatelessWidget {
                   },
                   icon: cp.cartList.containsKey(product.id)
                       ? Icon(
-                          Icons.shopping_cart,
-                          color: Colors.red,
-                        )
+                    Icons.shopping_cart,
+                    color: Colors.red,
+                  )
                       : Icon(
-                          Icons.shopping_cart,
-                          color: Colors.white,
-                        ),
+                    Icons.shopping_cart,
+                    color: Colors.white,
+                  ),
                 ),
               );
             }),
