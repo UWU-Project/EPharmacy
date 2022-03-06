@@ -1,11 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pill_pal/screens/auth/login_screen.dart';
 import 'package:pill_pal/screens/auth/signup_screen.dart';
 import 'package:pill_pal/screens/bottom_nav_screen.dart';
 import 'package:pill_pal/services/global_methods.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
 
 class LandingScreen extends StatefulWidget {
   static const routeName = '/landing-screen';
@@ -78,48 +80,48 @@ class _LandingScreenState extends State<LandingScreen>
   }
 
   final List<String> _images = [
-    'assets/images/shopping1.jpeg',
-    'assets/images/shopping2.jpeg',
+    'assets/images/shopping1.png',
+    'assets/images/shopping2.png',
   ];
 
-  // @override
-  // void initState() {
-  //   _images.shuffle();
+  @override
+  void initState() {
+    _images.shuffle();
 
-  //   _animationController = AnimationController(
-  //     vsync: this,
-  //     duration: Duration(seconds: 20),
-  //   );
-  //   _animation =
-  //       CurvedAnimation(parent: _animationController, curve: Curves.linear)
-  //         ..addListener(() {
-  //           setState(() {});
-  //         })
-  //         ..addStatusListener((animationStatus) {
-  //           if (animationStatus == AnimationStatus.completed) {
-  //             _animationController.reset();
-  //             _animationController.forward();
-  //           }
-  //         });
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 20),
+    );
+    _animation =
+        CurvedAnimation(parent: _animationController, curve: Curves.linear)
+          ..addListener(() {
+            setState(() {});
+          })
+          ..addStatusListener((animationStatus) {
+            if (animationStatus == AnimationStatus.completed) {
+              _animationController.reset();
+              _animationController.forward();
+            }
+          });
 
-  //   _animationController.forward();
-  //   super.initState();
-  // }
+    _animationController.forward();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          // SizedBox(
-          //   height: double.infinity,
-          //   width: double.infinity,
-          //   child: Image.asset(
-          //     _images[0],
-          //     fit: BoxFit.cover,
-          //     alignment: FractionalOffset(_animation.value, 0),
-          //   ),
-          // ),
+          SizedBox(
+            height: double.infinity,
+            width: double.infinity,
+            child: Image.asset(
+              _images[0],
+              fit: BoxFit.cover,
+              alignment: FractionalOffset(_animation.value, 0),
+            ),
+          ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -132,12 +134,26 @@ class _LandingScreenState extends State<LandingScreen>
               ),
               Center(
                 child: Text(
-                  'Flutter Shop',
+                  'Epharmacy',
                   style: TextStyle(fontSize: 65),
                 ),
               ),
+              const SizedBox(height: 100),
+              Center(
+                child: Lottie.asset('assets/epicon.json'),
+              ),
             ],
           ),
+
+          // Column(
+          //   mainAxisAlignment: MainAxisAlignment.start,
+          //   children: [
+          //     const SizedBox(height: 50),
+          //     Center(
+          //       child: Lottie.network('https://assets6.lottiefiles.com/packages/lf20_jcsfwbvi.json'),
+          //     ),
+          //   ],
+          // ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

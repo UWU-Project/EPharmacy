@@ -58,6 +58,7 @@ dependencies:
   http: ^0.13.4
   stripe_payment: ^1.1.4
   google_sign_in: ^5.2.1
+  lottie: ^1.2.2
 
 
 
@@ -128,6 +129,9 @@ flutter:
     - assets/images/carousel4.jpg
     - assets/images/carousel1.jpg
     - assets/images/carousel2.jpg
+    - assets/images/shopping1.png
+    - assets/images/shopping2.png
+    - assets/epicon.json
 
 
 
