@@ -271,28 +271,28 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
                       DropdownButton<String>(
                         items: [
                           DropdownMenuItem<String>(
-                            child: Text('Phones'),
-                            value: 'Phones',
+                            child: Text('Hair care'),
+                            value: 'Hair care',
                           ),
                           DropdownMenuItem<String>(
-                            child: Text('Clothes'),
-                            value: 'Clothes',
+                            child: Text('Face Wash'),
+                            value: 'Face Wash',
                           ),
                           DropdownMenuItem<String>(
-                            child: Text('Beauty & health'),
-                            value: 'Beauty',
+                            child: Text('Baby Care'),
+                            value: 'Baby Care',
                           ),
                           DropdownMenuItem<String>(
-                            child: Text('Shoes'),
-                            value: 'Shoes',
+                            child: Text('First Aid'),
+                            value: 'First Aid',
                           ),
                           DropdownMenuItem<String>(
-                            child: Text('Funiture'),
-                            value: 'Funiture',
+                            child: Text('Pain & Fever'),
+                            value: 'Pain & Fever',
                           ),
                           DropdownMenuItem<String>(
-                            child: Text('Watches'),
-                            value: 'Watches',
+                            child: Text('Womens Care'),
+                            value: 'Womens Care',
                           ),
                         ],
                         onChanged: (value) {
@@ -345,32 +345,32 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
                             value: 'Brandless',
                           ),
                           DropdownMenuItem<String>(
-                            child: Text('Addidas'),
-                            value: 'Addidas',
+                            child: Text('Link'),
+                            value: 'Link',
                           ),
                           DropdownMenuItem<String>(
-                            child: Text('Apple'),
-                            value: 'Apple',
+                            child: Text('Natures'),
+                            value: 'Natures',
                           ),
                           DropdownMenuItem<String>(
-                            child: Text('Dell'),
-                            value: 'Dell',
+                            child: Text('SPC'),
+                            value: 'SPC',
                           ),
                           DropdownMenuItem<String>(
                             child: Text('H&M'),
                             value: 'H&M',
                           ),
                           DropdownMenuItem<String>(
-                            child: Text('Nike'),
-                            value: 'Nike',
+                            child: Text('Jeewaka'),
+                            value: 'Jeewaka',
                           ),
                           DropdownMenuItem<String>(
-                            child: Text('Samsung'),
-                            value: 'Samsung',
+                            child: Text('UniMed'),
+                            value: 'UniMed',
                           ),
                           DropdownMenuItem<String>(
-                            child: Text('Huawei'),
-                            value: 'Huawei',
+                            child: Text('MediCare'),
+                            value: 'MediCare',
                           ),
                         ],
                         onChanged: (value) {
