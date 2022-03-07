@@ -239,7 +239,7 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
                             // FilteringTextInputFormatter.allow(RegExp('r[0-9]')),
                             FilteringTextInputFormatter.digitsOnly,
                           ],
-                          decoration: InputDecoration(labelText: 'Price \$'),
+                          decoration: InputDecoration(labelText: 'Price \R\s'),
                           onSaved: (val) {
                             _productPrice = val.toString();
                           },

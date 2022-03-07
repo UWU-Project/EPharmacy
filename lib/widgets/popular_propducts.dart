@@ -78,7 +78,7 @@ class PopularProducts extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: Text(
-                        '\$ ${productAttrribute.price}',
+                        '\R\s ${productAttrribute.price}',
                         style: TextStyle(fontSize: 16),
                       ),
                     ),
