@@ -37,7 +37,7 @@ dependencies:
   flutter_local_notifications: ^8.2.0
   flutter_native_timezone: ^2.0.0
   #after_layout: ^1.1.0
-  shared_preferences: ^2.0.7
+  shared_preferences: ^2.0.9
   firebase_auth: ^3.3.4
   firebase_core: ^1.10.6
   fluttertoast: ^8.0.8
@@ -59,6 +59,7 @@ dependencies:
   stripe_payment: ^1.1.4
   google_sign_in: ^5.2.1
   lottie: ^1.2.2
+  payhere_mobilesdk_flutter: ^2.0.0
 
 
 

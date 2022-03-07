@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:payhere_mobilesdk_flutter/payhere_mobilesdk_flutter.dart';
 import 'package:pill_pal/models%20&%20providers/cart.dart';
 import 'package:pill_pal/models%20&%20providers/product.dart';
 import 'package:pill_pal/services/global_methods.dart';
@@ -33,7 +34,14 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     final cartProvider = Provider.of<CartProvider>(context);
     GlobalMethods globalMethods = GlobalMethods();
+
+
+
+
     return cartProvider.cartList.isEmpty
+
+
+
         ? const Scaffold(
       body: EmptyCart(),
     )
@@ -114,11 +122,33 @@ Widget _bottomCheckoutSectiomn(BuildContext context, double totalAmount) {
             ),
           ),
           ElevatedButton(
-            onPressed: () async {
-              double amountInCents = totalAmount * 1000;
-              int integerAMount = (amountInCents / 10).ceil();
-              await payWithCard(amount: integerAMount);
+            onPressed: (){
 
+              Map paymentObject = {
+                "sandbox": true,  // true if using Sandbox Merchant ID
+                "merchant_id": "1219906",  // Replace your Merchant ID
+                "merchant_secret": "8X6CDtmECjn8Qh6ZehJe3o4ZCqs2w8AMR4uZrJih6PRr", // Replace your Merchant Secret
+                "notify_url": "http://sample.com/notify",
+                "order_id": "ItemNo12345",
+                "items": "Hello from Flutter!",
+                "amount": totalAmount,
+                "currency": "LKR",
+                "first_name": "Saman",
+                "last_name": "Perera",
+                "email": "samanp@gmail.com",
+                "phone": "0771234567",
+                "address": "No.1, Galle Road",
+                "city": "Colombo",
+                "country": "Sri Lanka",
+                "delivery_address": "No. 46, Galle road, Kalutara South",
+                "delivery_city": "Kalutara",
+                "delivery_country": "Sri Lanka",
+                "custom_1": "",
+                "custom_2": ""
+              };
+
+              PayHere.startPayment(paymentObject, (paymentId) {
+              print("One Time Payment Success. Payment Id: $paymentId");
               if (response!.success == true) {
                 User? user = FirebaseAuth.instance.currentUser;
                 final _uid = user!.uid;
@@ -141,7 +171,26 @@ Widget _bottomCheckoutSectiomn(BuildContext context, double totalAmount) {
                   } catch (error) {}
                 });
               }
-            },
+              }, (error) {
+              print("One Time Payment Failed. Error: $error");
+
+              }, () {
+              print("One Time Payment Dismissed");
+
+              });
+              },
+
+
+
+            //Previous Stripe Payment Beginfrom Here
+
+            // onPressed: () async {
+            //   double amountInCents = totalAmount * 1000;
+            //   int integerAMount = (amountInCents / 10).ceil();
+            //   await payWithCard(amount: integerAMount);
+            //
+
+            // },
             child: Text(
               '   C H E C K O U T   ',
               style: const TextStyle(
