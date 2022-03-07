@@ -177,8 +177,6 @@ Widget _bottomCheckoutSectiomn(BuildContext context, double totalAmount) {
               });
               },
 
-
-
             //Previous Stripe Payment Beginfrom Here
 
             // onPressed: () async {
