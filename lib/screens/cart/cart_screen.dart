@@ -149,12 +149,11 @@ Widget _bottomCheckoutSectiomn(BuildContext context, double totalAmount) {
 
               PayHere.startPayment(paymentObject, (paymentId) {
               print("One Time Payment Success. Payment Id: $paymentId");
-              if (response!.success == true) {
+
                 User? user = FirebaseAuth.instance.currentUser;
                 final _uid = user!.uid;
                 cartProvider.cartList.forEach((key, orderValue) async {
                   final orderId = _uuid.v4();
-                  try {
                     await FirebaseFirestore.instance
                         .collection('orders')
                         .doc(orderId)
@@ -168,9 +167,7 @@ Widget _bottomCheckoutSectiomn(BuildContext context, double totalAmount) {
                       'quantity': orderValue.quantity,
                       'orderDate': Timestamp.now(),
                     });
-                  } catch (error) {}
                 });
-              }
               }, (error) {
               print("One Time Payment Failed. Error: $error");
 
