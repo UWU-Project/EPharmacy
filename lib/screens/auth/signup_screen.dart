@@ -79,7 +79,8 @@ class _SignupScreenState extends State<SignupScreen> {
         _url = await ref.getDownloadURL();
 
         await _auth.createUserWithEmailAndPassword(
-            email: _email.toLowerCase().trim(), password: _password.trim());
+            email: _email.toLowerCase().trim(),
+            password: _password.trim());
 
         final User? user = _auth.currentUser;
         final _uid = user!.uid;
