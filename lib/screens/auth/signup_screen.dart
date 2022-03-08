@@ -9,6 +9,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pill_pal/login/models/user_model.dart';
 import 'package:pill_pal/pillreminder/pages/landing/landing1.dart';
+import 'package:wave/config.dart';
+import 'package:wave/wave.dart';
 
 
 import '../../login/screens/home_screen.dart';
@@ -91,7 +93,7 @@ class _SignupScreenState extends State<SignupScreen> {
           'phoneNumber': _phoneNumber,
           'imageUrl': _url,
           'joinedDate': formattedDate,
-          // 'createdAt': TimeStamp.now()
+          //'createdAt': TimeStamp.now()
         });
 
         Navigator.canPop(context) ? Navigator.pop(context) : null;
@@ -128,24 +130,24 @@ class _SignupScreenState extends State<SignupScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          // RotatedBox(
-          //   quarterTurns: 2,
-          //   child: WaveWidget(
-          //     config: CustomConfig(
-          //       colors: [
-          //         Colors.orangeAccent,
-          //         Colors.tealAccent,
-          //         Colors.pinkAccent,
-          //         Colors.deepPurpleAccent,
-          //       ],
-          //       durations: [35000, 11000, 10800, 6000],
-          //       heightPercentages: [0.01, 0.02, 0.03, 0.1],
-          //       blur: const MaskFilter.blur(BlurStyle.solid, 0),
-          //     ),
-          //     heightPercentange: 0.2,
-          //     size: const Size(double.infinity, double.infinity),
-          //   ),
-          // ),
+          RotatedBox(
+            quarterTurns: 2,
+            child: WaveWidget(
+              config: CustomConfig(
+                colors: [
+                  Colors.orangeAccent.withOpacity(0.5),
+                  Colors.tealAccent.withOpacity(0.5),
+                  Colors.pinkAccent.withOpacity(0.5),
+                  Colors.greenAccent,
+                ],
+                durations: [35000, 11000, 10800, 6000],
+                heightPercentages: [0.01, 0.02, 0.03, 0.1],
+                blur: const MaskFilter.blur(BlurStyle.solid, 0),
+              ),
+              heightPercentange: 0.2,
+              size: const Size(double.infinity, double.infinity),
+            ),
+          ),
           Form(
             key: _formKey,
             child: Padding(
@@ -164,7 +166,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             backgroundImage:
                             _image == null ? null : FileImage(_image!),
                             child: Icon(
-                              _image == null ? Icons.camera : null,
+                              _image == null ? Icons.photo_camera_rounded : null,
                               color: Colors.white,
                               size: 50,
                             ),
