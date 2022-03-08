@@ -112,7 +112,7 @@ class _UserScreenState extends State<UserScreen> {
                     shrinkWrap: true,
                     children: [
                       // User Bag
-                      const _userTileText(text: 'User Bag'),
+                      const _userTileText(text: 'User Orders'),
                       const _userTileHeightSpace(height: 10),
 
                       Consumer<WishlistProvider>(builder: (context, wp, _) {
@@ -161,7 +161,7 @@ class _UserScreenState extends State<UserScreen> {
                               child: Icon(
                                 Icons.shopping_cart,
                                 size: 40,
-                                color: Colors.deepPurpleAccent,
+                                color: Colors.blue,
                               ),
                             ),
                             title: Text('Wishlist'),

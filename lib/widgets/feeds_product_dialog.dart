@@ -21,7 +21,7 @@ class FeedsProductDialog extends StatelessWidget {
           children: [
             Consumer<WishlistProvider>(builder: (context, wp, _) {
               return CircleAvatar(
-                backgroundColor: Colors.deepPurpleAccent,
+                backgroundColor: Colors.green,
                 child: IconButton(
                   onPressed: () {
                     wp.addOrRemoveFromWishlist(
@@ -45,7 +45,7 @@ class FeedsProductDialog extends StatelessWidget {
             }),
             Consumer<CartProvider>(builder: (context, cp, _) {
               return CircleAvatar(
-                backgroundColor: Colors.deepPurpleAccent,
+                backgroundColor: Colors.green,
                 child: IconButton(
                   onPressed: () {
                     cp.addToCart(
@@ -68,7 +68,7 @@ class FeedsProductDialog extends StatelessWidget {
               );
             }),
             CircleAvatar(
-              backgroundColor: Colors.deepPurpleAccent,
+              backgroundColor: Colors.green,
               child: IconButton(
                 onPressed: () {
                   Navigator.pop(context);

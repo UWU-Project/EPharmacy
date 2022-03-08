@@ -6,7 +6,7 @@ class MyAppTheme {
     return ThemeData(
       brightness: isDark ? Brightness.dark : Brightness.light,
       appBarTheme: AppBarTheme(
-        backgroundColor: isDark ? const Color(0xFF181818) : Colors.deepPurple,
+        backgroundColor: isDark ? const Color(0xFF181818) : Colors.green,
       ),
       colorScheme: isDark
           ? const ColorScheme.dark(
@@ -16,7 +16,7 @@ class MyAppTheme {
         onSecondary: Colors.white,
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Colors.deepPurpleAccent,
+        backgroundColor: Colors.green,
       ),
     );
   }

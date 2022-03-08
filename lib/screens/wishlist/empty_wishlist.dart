@@ -45,6 +45,12 @@ class EmptyWishlist extends StatelessWidget {
                 Navigator.of(context)
                     .pushReplacementNamed(BottomNavScreen.routeName);
               },
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.lightBlue,
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                  textStyle: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold)),
               child: const Text(
                 'Shop Now',
                 style: TextStyle(

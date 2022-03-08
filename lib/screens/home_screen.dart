@@ -35,6 +35,9 @@ class HomeScreenNew extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreenNew> {
 
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+
   final List<Widget> _carouselImages = [
     Image.asset('assets/images/carousel1.jpg'),
     Image.asset('assets/images/carousel2.jpg'),
@@ -42,6 +45,18 @@ class _HomeScreenState extends State<HomeScreenNew> {
     Image.asset('assets/images/carousel4.jpg'),
   ];
 
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,26 +118,31 @@ class _HomeScreenState extends State<HomeScreenNew> {
 
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "WELCOME,",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight:FontWeight.w500,
-                    ),
+              child: Row(
+                children: [
+                  Text(
+                    "WELCOME,",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight:FontWeight.w500,
+                        ),
+                  ),
+                  Text("${loggedInUser.displayName}",
+                      style:TextStyle(
+                        color: Colors.black54,
+                        fontWeight: FontWeight.w500,
+                      )
+                  ),
+                  Text("  ${loggedInUser.email}",
+                      style: TextStyle(
+                        color: Colors.black54,
+                        fontWeight: FontWeight.w500,
+                      )
+                  ),
+                ],
               ),
             ),
-            // Text("${loggedInUser.firstName} ${loggedInUser.lastName}",
-            //     style:TextStyle(
-            //       color: Colors.black54,
-            //       fontWeight: FontWeight.w500,
-            //     )
-            // ),
-            // Text("${loggedInUser.email}",
-            //     style: TextStyle(
-            //       color: Colors.black54,
-            //       fontWeight: FontWeight.w500,
-            //     )
-            // ),
+
 
           Card(
             child: Padding(
@@ -258,6 +278,8 @@ class _HomeScreenState extends State<HomeScreenNew> {
           ),
             const SizedBox(height: 8),
 
+
+
             // Pill Identifier Button 272 - 298
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -282,34 +304,33 @@ class _HomeScreenState extends State<HomeScreenNew> {
                     ),
                   ),
                 ),
+
+
               ],
+
             ),
 
             // Pill Identifier Button 272 - 298
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(50,0,0,0),
-                  child: Card(
-                    color: Colors.pinkAccent,
-                    elevation: 20,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(150),
-                    ),
 
-                    child: Column(
-                      children: [
-                        IconButton(
-                            icon: Icon(Icons.rate_review_rounded),color: Colors.white, onPressed: () {
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (_) => PillID2()));
-                        }),
-                      ],
-                    ),
-                  ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Card(
+                color: Colors.lightBlueAccent,
+                elevation: 20,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(150),
                 ),
-              ],
+
+                child: Column(
+                  children: [
+                    IconButton(
+                        icon: Icon(Icons.rate_review_rounded),color: Colors.white, onPressed: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (_) => PillID2()));
+                    }),
+                  ],
+                ),
+              ),
             ),
 
 
