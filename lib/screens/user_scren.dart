@@ -3,15 +3,14 @@ import 'package:badges/badges.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pill_pal/login/models/user_model.dart';
 import 'package:pill_pal/models%20&%20providers/cart.dart';
 import 'package:pill_pal/models%20&%20providers/my_theme.dart';
+import 'package:pill_pal/models%20&%20providers/order.dart';
 import 'package:pill_pal/models%20&%20providers/wishlist.dart';
 import 'package:pill_pal/screens/cart/cart_screen.dart';
 import 'package:pill_pal/screens/orders/orders_screen.dart';
 import 'package:pill_pal/screens/wishlist/wishlist_screen.dart';
 import 'package:provider/provider.dart';
-
 
 class UserScreen extends StatefulWidget {
   static const routeName = '/User-screen';
@@ -112,7 +111,7 @@ class _UserScreenState extends State<UserScreen> {
                     shrinkWrap: true,
                     children: [
                       // User Bag
-                      const _userTileText(text: 'User Orders'),
+                      const _userTileText(text: 'User Bag'),
                       const _userTileHeightSpace(height: 10),
 
                       Consumer<WishlistProvider>(builder: (context, wp, _) {
@@ -164,13 +163,13 @@ class _UserScreenState extends State<UserScreen> {
                                 color: Colors.blue,
                               ),
                             ),
-                            title: Text('Wishlist'),
+                            title: Text('Cart'),
                             trailing: Icon(Icons.arrow_forward_ios),
                           ),
                         );
                       }),
 
-                      Consumer<WishlistProvider>(builder: (context, wp, _) {
+                      Consumer<OrderProvider>(builder: (context, op, _) {
                         return Card(
                           child: ListTile(
                             onTap: () {
@@ -183,7 +182,7 @@ class _UserScreenState extends State<UserScreen> {
                               position: BadgePosition.topEnd(top: 0, end: 0),
                               badgeColor: Colors.indigo,
                               badgeContent: Text(
-                                wp.wishlistList.length.toString(),
+                                op.getOrders.length.toString(),
                                 style: TextStyle(color: Colors.white),
                               ),
                               child: Icon(

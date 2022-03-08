@@ -60,6 +60,13 @@ dependencies:
   google_sign_in: ^5.2.1
   lottie: ^1.2.2
   payhere_mobilesdk_flutter: ^2.0.0
+  flutter_chat_ui: ^1.5.3
+  open_file: ^3.2.1
+  file_picker: ^4.4.0
+  flutter_firebase_chat_core: ^1.5.1
+  faker: ^2.0.0
+  path_provider: ^2.0.6
+
 
 
 

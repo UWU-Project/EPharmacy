@@ -93,7 +93,7 @@ class _PrescUploadState extends State<PrescUpload> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => ImageUpload(
-                          userId: loggedInUser.uid,
+                          userId: loggedInUser.id,
                         )));
               },
               child: const Text("Upload Prescription"),
@@ -104,7 +104,7 @@ class _PrescUploadState extends State<PrescUpload> {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            ImageRetrive(userId: loggedInUser.uid)));
+                            ImageRetrive(userId: loggedInUser.id)));
               },
               child: const Text("My Prescriptions"),
             ),

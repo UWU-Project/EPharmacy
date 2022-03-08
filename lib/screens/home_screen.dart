@@ -12,7 +12,7 @@ import 'package:pill_pal/screens/auth/login_screen.dart';
 import 'package:pill_pal/models%20&%20providers/product.dart';
 import 'package:pill_pal/models%20&%20providers/wishlist.dart';
 import 'package:pill_pal/pillidf/pill_id.dart';
-import 'package:pill_pal/pillidf/pill_idf.dart';
+import 'package:pill_pal/chat/pill_idf.dart';
 import 'package:pill_pal/screens/feeds_screen.dart';
 import 'package:pill_pal/screens/inner_screens/brands_nav_rail.dart';
 import 'package:pill_pal/screens/wishlist/wishlist_screen.dart';
@@ -127,7 +127,7 @@ class _HomeScreenState extends State<HomeScreenNew> {
                         fontWeight:FontWeight.w500,
                         ),
                   ),
-                  Text("${loggedInUser.displayName}",
+                  Text("${loggedInUser.name}",
                       style:TextStyle(
                         color: Colors.black54,
                         fontWeight: FontWeight.w500,
@@ -298,7 +298,7 @@ class _HomeScreenState extends State<HomeScreenNew> {
                         IconButton(
                             icon: Icon(Icons.rate_review_rounded),color: Colors.white, onPressed: () {
                           Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (_) => const PillID()));
+                              .push(MaterialPageRoute(builder: (_) => const ChatPage()));
                         }),
                       ],
                     ),
