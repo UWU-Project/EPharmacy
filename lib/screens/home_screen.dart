@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreenNew> {
         headerHeight: MediaQuery.of(context).size.height * 0.4,
         backLayerBackgroundColor: Colors.grey.shade900,
         appBar: BackdropAppBar(
-          title: const Text('E-Pharma'),
+          title: const Text('E-PHARMA'),
           leading: const BackdropToggleButton(
             icon: AnimatedIcons.home_menu,
           ),
@@ -131,14 +131,15 @@ class _HomeScreenState extends State<HomeScreenNew> {
                       style:TextStyle(
                         color: Colors.black54,
                         fontWeight: FontWeight.w500,
+                          fontSize: 18,
                       )
                   ),
-                  Text("  ${loggedInUser.email}",
-                      style: TextStyle(
-                        color: Colors.black54,
-                        fontWeight: FontWeight.w500,
-                      )
-                  ),
+                  // Text("  ${loggedInUser.email}",
+                  //     style: TextStyle(
+                  //       color: Colors.black54,
+                  //       fontWeight: FontWeight.w500,
+                  //     )
+                  // ),
                 ],
               ),
             ),
