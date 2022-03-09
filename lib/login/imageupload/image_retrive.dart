@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:pill_pal/chat/pill_idf.dart';
 
 class ImageRetrive extends StatefulWidget {
   final String? userId;
@@ -74,6 +75,15 @@ class _ImageRetriveState extends State<ImageRetrive> {
                                 ),),
                             ],
                           ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0,0,8,0),
+                        child: ElevatedButton(onPressed:(){
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (_) => const ChatPage()));
+                        },
+                          child: Text("Chat"),
                         ),
                       ),
                       Padding(

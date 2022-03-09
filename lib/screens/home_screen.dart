@@ -151,8 +151,8 @@ class _HomeScreenState extends State<HomeScreenNew> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(icon: const Icon(Icons.camera_alt), color: Colors.white, onPressed: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (_) => const PrescUpload()));
+                    Navigator.pushNamed(context, '/home');
+
                   }
                   ),
                   const Text("PILL REMINDER",
@@ -189,7 +189,8 @@ class _HomeScreenState extends State<HomeScreenNew> {
 
                       IconButton(
                           icon: Icon(Icons.graphic_eq_rounded),color: Colors.white, onPressed: () {
-                      Navigator.pushNamed(context, '/home');
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) => const PrescUpload()));
                       }),
 
                     ],
@@ -260,11 +261,10 @@ class _HomeScreenState extends State<HomeScreenNew> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(50,0,0,0),
+                padding: const EdgeInsets.fromLTRB(30,0,0,0),
                 child: Column(
                   children: const [
-
-                    Text(" Pill Reminder",
+                    Text("My Prescriptions",
                       style: TextStyle(fontWeight: FontWeight.w600,
                           fontSize: 12,
                           color: Colors.black),
@@ -275,7 +275,7 @@ class _HomeScreenState extends State<HomeScreenNew> {
 
               Column(
                 children: const [
-                  Text(" Prescription OCR Reader",
+                  Text("OCR Reader",
                     style: TextStyle(fontWeight: FontWeight.w600,
                         fontSize: 12,
                         color: Colors.black),
