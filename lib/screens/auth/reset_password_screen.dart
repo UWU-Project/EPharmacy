@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pill_pal/screens/auth/signup_screen.dart';
 import 'package:pill_pal/services/global_methods.dart';
+import 'package:pill_pal/widgets/header_widget.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
   static const routeName = '/ResetPassword-screen';
@@ -13,6 +14,9 @@ class ResetPasswordScreen extends StatefulWidget {
 }
 
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
+
+  double _headerHeight = 250;
+
   final _formKey = GlobalKey<FormState>();
 
   String _email = '';
@@ -55,6 +59,12 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
     return Scaffold(
       body: Stack(
         children: [
+          Container(
+            height: _headerHeight,
+            child:
+            HeaderWidget(_headerHeight, true, Icons.adb), //let's create a common header widget
+          ),
+
           Form(
             key: _formKey,
             child: Padding(
@@ -64,13 +74,12 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const SizedBox(height: 80),
-                    Center(
-                      child: Text(
-                        'Reset Password',
-                        style: TextStyle(fontSize: 55),
-                      ),
+
+                    Text(
+                      'Reset Password',
+                      style: TextStyle(color: Colors.white),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 60),
                     TextFormField(
                       onSaved: (value) {
                         _email = value!;

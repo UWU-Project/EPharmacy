@@ -7,6 +7,7 @@ import 'package:pill_pal/screens/auth/signup_screen.dart';
 import 'package:pill_pal/services/global_methods.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pill_pal/pillreminder/pages/landing/landing1.dart';
+import 'package:pill_pal/widgets/header_widget.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -25,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   // late final medicineDao;
   // late final reminderDao;
   // late final reminderCheckDao;
-
+  double _headerHeight = 250;
   void _chanageVisibility() {
     setState(() {
       _isVisible = !_isVisible;
@@ -101,8 +102,18 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
     return Scaffold(
-      body: Stack(
+      backgroundColor: Colors.white,
+
+
+      body:
+
+      Stack(
         children: [
+          Container(
+            height: _headerHeight,
+            child: HeaderWidget(_headerHeight, true, Icons.login_outlined), //let's create a common header widget
+          ),
+
           // RotatedBox(
           //   quarterTurns: 2,
           //   child: WaveWidget(
@@ -121,6 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
           //     size: const Size(double.infinity, double.infinity),
           //   ),
           // ),
+
           Form(
             key: _formKey,
             child: Padding(
@@ -132,11 +144,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 80),
                     Center(
                       child: Text(
-                        'Login',
-                        style: TextStyle(fontSize: 65),
+                        ' ',
+                        style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
                       ),
+
                     ),
-                    const SizedBox(height: 30),
+                    Text(
+                      'Signin into your account',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    const SizedBox(height: 130),
+
                     TextFormField(
                       onSaved: (value) {
                         _email = value!;
@@ -161,7 +179,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         prefixIcon: Icon(Icons.email),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 20),
                     TextFormField(
                       focusNode: _passwordFocusNode,
                       onSaved: (value) {
@@ -235,7 +253,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                   child: Text(
                     'Create an Account',
-                    style: TextStyle(color: Colors.deepPurpleAccent),
+                    style: TextStyle(color: Colors.green),
                   ),
                 ),
               ),

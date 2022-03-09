@@ -9,6 +9,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pill_pal/login/models/user_model.dart';
 import 'package:pill_pal/pillreminder/pages/landing/landing1.dart';
+import 'package:pill_pal/widgets/header_widget.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
 
@@ -25,6 +26,8 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  double _headerHeight = 250;
+
   void _chanageVisibility() {
     setState(() {
       _isVisible = !_isVisible;
@@ -131,24 +134,31 @@ class _SignupScreenState extends State<SignupScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          RotatedBox(
-            quarterTurns: 2,
-            child: WaveWidget(
-              config: CustomConfig(
-                colors: [
-                  Colors.orangeAccent.withOpacity(0.5),
-                  Colors.tealAccent.withOpacity(0.5),
-                  Colors.pinkAccent.withOpacity(0.5),
-                  Colors.greenAccent,
-                ],
-                durations: [35000, 11000, 10800, 6000],
-                heightPercentages: [0.01, 0.02, 0.03, 0.1],
-                blur: const MaskFilter.blur(BlurStyle.solid, 0),
-              ),
-              heightPercentange: 0.2,
-              size: const Size(double.infinity, double.infinity),
-            ),
+          Container(
+            height: _headerHeight,
+            child:
+            HeaderWidget(_headerHeight, true, Icons.adb), //let's create a common header widget
           ),
+
+
+          // RotatedBox(
+          //   quarterTurns: 2,
+          //   child: WaveWidget(
+          //     config: CustomConfig(
+          //       colors: [
+          //         Colors.orangeAccent.withOpacity(0.5),
+          //         Colors.tealAccent.withOpacity(0.5),
+          //         Colors.pinkAccent.withOpacity(0.5),
+          //         Colors.greenAccent,
+          //       ],
+          //       durations: [35000, 11000, 10800, 6000],
+          //       heightPercentages: [0.01, 0.02, 0.03, 0.1],
+          //       blur: const MaskFilter.blur(BlurStyle.solid, 0),
+          //     ),
+          //     heightPercentange: 0.2,
+          //     size: const Size(double.infinity, double.infinity),
+          //   ),
+          // ),
           Form(
             key: _formKey,
             child: Padding(
@@ -157,13 +167,15 @@ class _SignupScreenState extends State<SignupScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 80),
+                    const SizedBox(height: 50),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         InkWell(
                           onTap: _getImage,
                           child: CircleAvatar(
-                            radius: 60,
+                            radius: 50,
+                            backgroundColor: Colors.greenAccent,
                             backgroundImage:
                             _image == null ? null : FileImage(_image!),
                             child: Icon(
@@ -173,14 +185,14 @@ class _SignupScreenState extends State<SignupScreen> {
                             ),
                           ),
                         ),
-                        const SizedBox(width: 20),
-                        Text(
-                          'Signup',
-                          style: TextStyle(fontSize: 65),
-                        ),
                       ],
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 10),
+                    Text(
+                      'Signup into your account',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    const SizedBox(height: 100),
                     TextFormField(
                       onSaved: (value) {
                         _fullName = value!;
@@ -204,7 +216,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         prefixIcon: Icon(Icons.person),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 20),
                     TextFormField(
                       onSaved: (value) {
                         _phoneNumber = int.parse(value!);
@@ -215,8 +227,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       // keyboardType: TextInputType.emailAddress,
                       key: ValueKey('number'),
                       validator: (value) {
-                        if (value!.length < 11) {
-                          return 'Phone number must be 11 units';
+                        if (value!.length < 10) {
+                          return 'Phone number must be 10 units';
                         }
                         return null;
                       },
@@ -229,7 +241,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         prefixIcon: Icon(Icons.phone),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 20),
                     TextFormField(
                       onSaved: (value) {
                         _email = value!;
@@ -254,7 +266,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         prefixIcon: Icon(Icons.email),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 20),
                     TextFormField(
                       focusNode: _passwordFocusNode,
                       onSaved: (value) {
@@ -316,7 +328,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   },
                   child: Text(
                     'Login to Your Account',
-                    style: TextStyle(color: Colors.deepPurpleAccent),
+                    style: TextStyle(color: Colors.green),
                   ),
                 ),
               ),
