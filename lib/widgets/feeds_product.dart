@@ -48,7 +48,7 @@ class _FeedsProductState extends State<FeedsProduct> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    productAttribute.description,
+                    productAttribute.title,
                     maxLines: 1,
                     style: const TextStyle(
                       fontSize: 18,

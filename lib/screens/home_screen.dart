@@ -303,35 +303,35 @@ class _HomeScreenState extends State<HomeScreenNew> {
 
 
 
-            // Pill Identifier Button 272 - 298
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(50,0,0,0),
-                  child: Card(
-                    color: Colors.pinkAccent,
-                    elevation: 20,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(150),
-                    ),
-
-                    child: Column(
-                      children: [
-                        IconButton(
-                            icon: Icon(Icons.rate_review_rounded),color: Colors.white, onPressed: () {
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (_) => const ChatPage()));
-                        }),
-                      ],
-                    ),
-                  ),
-                ),
-
-
-              ],
-
-            ),
+            // // Pill Identifier Button 272 - 298
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: [
+            //     Padding(
+            //       padding: const EdgeInsets.fromLTRB(50,0,0,0),
+            //       child: Card(
+            //         color: Colors.pinkAccent,
+            //         elevation: 20,
+            //         shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(150),
+            //         ),
+            //
+            //         child: Column(
+            //           children: [
+            //             IconButton(
+            //                 icon: Icon(Icons.rate_review_rounded),color: Colors.white, onPressed: () {
+            //               Navigator.of(context)
+            //                   .push(MaterialPageRoute(builder: (_) => const ChatPage()));
+            //             }),
+            //           ],
+            //         ),
+            //       ),
+            //     ),
+            //
+            //
+            //   ],
+            //
+            // ),
 
             // Pill Identifier Button 272 - 298
 
@@ -350,7 +350,12 @@ class _HomeScreenState extends State<HomeScreenNew> {
                         icon: Icon(Icons.rate_review_rounded),color: Colors.white, onPressed: () {
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (_) => PillID2()));
-                    }),
+                    }
+                    ),
+
+
+
+
                   ],
                 ),
               ),

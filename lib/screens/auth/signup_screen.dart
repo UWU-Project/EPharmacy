@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pill_pal/pillreminder/pages/landing/landing1.dart';
 import 'package:pill_pal/screens/auth/login_screen.dart';
 import 'package:pill_pal/services/global_methods.dart';
 import 'package:pill_pal/widgets/header_widget.dart';
@@ -93,6 +94,8 @@ class _SignupScreenState extends State<SignupScreen> {
         });
 
         Navigator.canPop(context) ? Navigator.pop(context) : null;
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (_) => Landing1()));
       }
     } catch (error) {
       _globalMethods.authDialog(context, error.toString());
@@ -322,24 +325,24 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
             ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Center(
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.of(context)
-                        .pushReplacementNamed(LoginScreen.routeName);
-                  },
-                  child: Text(
-                    'Login to Your Account',
-                    style: TextStyle(color: Colors.green),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 30),
-            ],
-          ),
+          // Column(
+          //   mainAxisAlignment: MainAxisAlignment.end,
+          //   children: [
+          //     Center(
+          //       child: TextButton(
+          //         onPressed: () {
+          //           Navigator.of(context)
+          //               .pushReplacementNamed(LoginScreen.routeName);
+          //         },
+          //         child: Text(
+          //           'Login to Your Account',
+          //           style: TextStyle(color: Colors.green),
+          //         ),
+          //       ),
+          //     ),
+          //     const SizedBox(height: 30),
+          //   ],
+          // ),
         ],
       ),
     );
