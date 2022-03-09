@@ -122,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
           //         Colors.orangeAccent,
           //         Colors.tealAccent,
           //         Colors.pinkAccent,
-          //         Colors.deepPurpleAccent,
+          //         Colors.deepblue Accent,
           //       ],
           //       durations: [35000, 11000, 10800, 6000],
           //       heightPercentages: [0.01, 0.02, 0.03, 0.1],

@@ -88,13 +88,15 @@ class _CartScreenState extends State<CartScreen> {
 Widget _bottomCheckoutSectiomn(BuildContext context, double totalAmount) {
   var _uuid = Uuid();
 
+  totalAmount=totalAmount+300;
+
   final cartProvider = Provider.of<CartProvider>(context);
 
   StripeTransactionResponse? response;
 
   Future<void> payWithCard({required int amount}) async {
     response = await StripeService.payWithNewCard(
-        amount: amount.toString(), currency: 'USD');
+        amount: amount.toString(), currency: 'LKR');
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -114,7 +116,7 @@ Widget _bottomCheckoutSectiomn(BuildContext context, double totalAmount) {
         children: [
           Expanded(
             child: Text(
-              'Total: \$ ${totalAmount.toStringAsFixed(2)}',
+              'Total: \R\s ${totalAmount.toStringAsFixed(2)}',
               style: const TextStyle(
                 fontSize: 18,
               ),

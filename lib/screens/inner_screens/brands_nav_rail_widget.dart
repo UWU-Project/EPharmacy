@@ -60,7 +60,7 @@ class BrandNavRailWidget extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: Text(
-                          '\$ ${productAttribute.price}',
+                          '\R\s  ${productAttribute.price}',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),

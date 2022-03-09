@@ -154,9 +154,9 @@ class _MedicineItemPageState extends State<MedicineItemPage> {
                       data: '${medicineItem.capSize} mg',
                       icon: Icon(
                         Icons.hourglass_bottom,
-                        color: Colors.purple,
+                        color: Colors.blue ,
                       ),
-                      color: Colors.purple,
+                      color: Colors.blue ,
                     ),
                   ],
                 ),

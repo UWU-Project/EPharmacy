@@ -66,7 +66,7 @@ class _MedicineAddPageState extends State<MedicineEditPage> {
 
   void changeColor(Color color) => setState(() => pillColor = color);
    final List<Color> pallet = [
-    Colors.deepPurple, Colors.purple,  Colors.blueAccent, Colors.blue.shade200,
+    Colors.deepPurple, Colors.blue ,  Colors.blueAccent, Colors.blue.shade200,
     Colors.teal, Colors.green, Colors.lime, Colors.yellow.shade200,
     Colors.pink.shade900, Colors.red, Colors.orange, Colors.amber,
     Colors.brown, Colors.pink.shade200, Colors.grey.shade400, Colors.white

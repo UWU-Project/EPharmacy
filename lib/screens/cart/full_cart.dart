@@ -103,7 +103,7 @@ class _FullCartState extends State<FullCart> {
                         ),
                         Flexible(
                           child: Text(
-                            '\$${cartAttribute.price}',
+                            '\R\s ${cartAttribute.price}',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(fontSize: 16),
                           ),
@@ -118,7 +118,7 @@ class _FullCartState extends State<FullCart> {
                         ),
                         Flexible(
                           child: Text(
-                            '\$${(cartAttribute.price * cartAttribute.quantity).toStringAsFixed(2)}',
+                            '\R\s ${(cartAttribute.price * cartAttribute.quantity).toStringAsFixed(2)}',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(fontSize: 16),
                           ),
@@ -133,7 +133,7 @@ class _FullCartState extends State<FullCart> {
                         ),
                         Flexible(
                           child: Text(
-                            '\$450.00',
+                            '\R\s 300.00',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(fontSize: 16),
                           ),

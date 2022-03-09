@@ -91,7 +91,7 @@ class _FullOrderState extends State<FullOrder> {
                         ),
                         Flexible(
                           child: Text(
-                            '\$ ${order.price}',
+                            '\R\s  ${order.price}',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(fontSize: 16),
                           ),
@@ -121,7 +121,7 @@ class _FullOrderState extends State<FullOrder> {
                     //     ),
                     //     Flexible(
                     //       child: Text(
-                    //         '\$',
+                    //         '\R\s ',
                     //         overflow: TextOverflow.ellipsis,
                     //         style: TextStyle(fontSize: 16),
                     //       ),
@@ -136,7 +136,7 @@ class _FullOrderState extends State<FullOrder> {
                     //     ),
                     //     Flexible(
                     //       child: Text(
-                    //         '\$450.00',
+                    //         '\R\s 450.00',
                     //         overflow: TextOverflow.ellipsis,
                     //         style: TextStyle(fontSize: 16),
                     //       ),

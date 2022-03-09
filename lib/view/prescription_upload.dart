@@ -96,6 +96,12 @@ class _PrescUploadState extends State<PrescUpload> {
                           userId: loggedInUser.id,
                         )));
               },
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.lightBlue,
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  textStyle: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold)),
               child: const Text("Upload Prescription"),
             ),
             ElevatedButton(
@@ -106,6 +112,12 @@ class _PrescUploadState extends State<PrescUpload> {
                         builder: (context) =>
                             ImageRetrive(userId: loggedInUser.id)));
               },
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.lightBlue,
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  textStyle: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold)),
               child: const Text("My Prescriptions"),
             ),
             const Text(

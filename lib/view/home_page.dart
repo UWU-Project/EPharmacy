@@ -42,7 +42,10 @@ class HomePage extends StatelessWidget {
                           )
                         : CustomButton(
                             text: 'Upload Prescription',
-                            onTap: imageProvider.getImage),
+                            onTap: imageProvider.getImage,
+
+                ),
+
           ),
           const SizedBox(
             height: 15.0,

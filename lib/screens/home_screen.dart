@@ -217,19 +217,40 @@ class _HomeScreenState extends State<HomeScreenNew> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(0,0,50,0),
                 child: Card(
-                  color: Colors.redAccent,
+                  color: Colors.pinkAccent,
                   elevation: 20,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(150),
                   ),
+
                   child: Column(
                     children: [
                       IconButton(
-                          icon: Icon(Icons.message), color: Colors.white,onPressed: () {}),
+                          icon: Icon(Icons.message),color: Colors.white, onPressed: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) => const ChatPage()));
+                      }),
                     ],
                   ),
                 ),
               ),
+
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(0,0,50,0),
+              //   child: Card(
+              //     color: Colors.redAccent,
+              //     elevation: 20,
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(150),
+              //     ),
+              //     child: Column(
+              //       children: [
+              //         IconButton(
+              //             icon: Icon(Icons.message), color: Colors.white,onPressed: () {}),
+              //       ],
+              //     ),
+              //   ),
+              // ),
             ],
           ),
 
@@ -276,6 +297,8 @@ class _HomeScreenState extends State<HomeScreenNew> {
               ),
             ],
           ),
+
+
             const SizedBox(height: 8),
 
 

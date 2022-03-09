@@ -128,10 +128,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             ),
                             const SizedBox(height: 6),
                             Text(
-                              '\$ ${product.price}',
+                              '\R\s  ${product.price}',
                               style: TextStyle(
                                 fontSize: 21,
-                                color: Colors.purple,
+                                color: Colors.blue ,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),

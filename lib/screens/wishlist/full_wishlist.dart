@@ -94,7 +94,7 @@ class _FullWishlistState extends State<FullWishlist> {
                         ),
                         Flexible(
                           child: Text(
-                            '\$${(wishlistAttribute.price).toStringAsFixed(2)}',
+                            '\R\s ${(wishlistAttribute.price).toStringAsFixed(2)}',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(fontSize: 16),
                           ),
