@@ -134,7 +134,7 @@ class _LandingScreenState extends State<LandingScreen>
               ),
               Center(
                 child: Text(
-                  'Epharmacy',
+                  'E-PHARMA',
                   style: TextStyle(fontSize: 65),
                 ),
               ),
@@ -193,28 +193,35 @@ class _LandingScreenState extends State<LandingScreen>
                 children: [
                   const SizedBox(width: 10),
                   Expanded(
-                    child: ElevatedButton(
+
+                    child: IconButton(
+                      icon: Image.asset('assets/3.png'),
+                      tooltip: 'GOOGLE SIGN IN',
                       onPressed: _googleSignIn,
-                      child: const Text(
-                        'Google',
-                        style: TextStyle(color: Colors.white),
-                      ),
                     ),
+
+                    // child: ElevatedButton(
+                    //   onPressed: _googleSignIn,
+                    //   child: const Text(
+                    //     'Google',
+                    //     style: TextStyle(color: Colors.white),
+                    //   ),
+                    // ),
                   ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: _isLoading
-                        ? Center(child: CircularProgressIndicator())
-                        : ElevatedButton(
-                            onPressed: () {
-                              _signInAnon();
-                            },
-                            child: const Text(
-                              'Guest',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                  ),
+                  // const SizedBox(width: 10),
+                  // Expanded(
+                  //   child: _isLoading
+                  //       ? Center(child: CircularProgressIndicator())
+                  //       : ElevatedButton(
+                  //           onPressed: () {
+                  //             _signInAnon();
+                  //           },
+                  //           child: const Text(
+                  //             'Guest',
+                  //             style: TextStyle(color: Colors.white),
+                  //           ),
+                  //         ),
+                  // ),
                   const SizedBox(width: 10),
                 ],
               ),
@@ -226,3 +233,4 @@ class _LandingScreenState extends State<LandingScreen>
     );
   }
 }
+
