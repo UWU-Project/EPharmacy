@@ -155,7 +155,7 @@ class _HomeScreenState extends State<HomeScreenNew> {
                         .push(MaterialPageRoute(builder: (_) => const PrescUpload()));
                   }
                   ),
-                  const Text("Upload your Prescription",
+                  const Text("PILL REMINDER",
                     style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15,color: Colors.white),
                   ),
 
@@ -335,29 +335,53 @@ class _HomeScreenState extends State<HomeScreenNew> {
 
             // Pill Identifier Button 272 - 298
 
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Card(
-                color: Colors.lightBlueAccent,
-                elevation: 20,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(150),
-                ),
+            // Padding(
+            //   padding: const EdgeInsets.all(12.0),
+            //   child: Card(
+            //     color: Colors.lightBlueAccent,
+            //     elevation: 20,
+            //     shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(150),
+            //     ),
+            //     child: Column(
+            //       children: [
+            //         IconButton(
+            //             icon: Icon(Icons.rate_review_rounded),color: Colors.white, onPressed: () {
+            //           Navigator.of(context)
+            //               .push(MaterialPageRoute(builder: (_) => PillID2()));
+            //         }
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
 
-                child: Column(
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(
-                        icon: Icon(Icons.rate_review_rounded),color: Colors.white, onPressed: () {
+                    IconButton(icon: const Icon(Icons.rate_review_rounded), color: Colors.white,
+                        onPressed: () {
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (_) => PillID2()));
                     }
                     ),
-
-
-
+                    const Text("PILL IDENTIFIER",
+                      style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15,color: Colors.white),
+                    ),
 
                   ],
+
                 ),
+              ),
+              elevation: 8,
+              color: Colors.blue,
+              margin: EdgeInsets.all(20),
+              shape:  OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: Colors.blueAccent, width: 1)
               ),
             ),
 

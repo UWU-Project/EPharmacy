@@ -36,7 +36,7 @@ class _FeedsScreenState extends State<FeedsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Feeds Screen'),
+        title: const Text('PRODUCTS'),
         actions: [
           Consumer<WishlistProvider>(builder: (context, wp, _) {
             return Badge(

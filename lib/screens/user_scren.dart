@@ -234,7 +234,7 @@ class _UserScreenState extends State<UserScreen> {
 
                       // User Information
                       const _userTileHeightSpace(height: 15),
-                      const _userTileText(text: 'User Informattion'),
+                      const _userTileText(text: 'User Information'),
                       const _userTileHeightSpace(height: 10),
                       _userListTile(
                         lIcon: Icons.call,

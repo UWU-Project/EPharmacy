@@ -107,6 +107,15 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   ),
                 ),
                 Container(
+                  decoration: new BoxDecoration(
+                    image: new DecorationImage(
+                      fit: BoxFit.cover,
+
+                      image: new ExactAssetImage('assets/blr.png'),
+
+                    ),
+                  ),
+
                   padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,7 +140,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               '\R\s  ${product.price}',
                               style: TextStyle(
                                 fontSize: 21,
-                                color: Colors.blue ,
+                                color: Colors.blue,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -189,41 +198,41 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         color: Colors.grey,
                         height: 1,
                       ),
-                      Container(
-                        color: Colors.black54,
-                        width: double.infinity,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const SizedBox(height: 10),
-                            Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: Text(
-                                'No reviews yet',
-                                style: TextStyle(
-                                  fontSize: 21,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: Text(
-                                'Be The First To Review!',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 70),
-                            const Divider(
-                              thickness: 1,
-                              color: Colors.grey,
-                              height: 1,
-                            ),
-                          ],
-                        ),
-                      ),
+                      // Container(
+                      //   color: Colors.black54,
+                      //   width: double.infinity,
+                      //   child: Column(
+                      //     crossAxisAlignment: CrossAxisAlignment.center,
+                      //     children: [
+                      //       const SizedBox(height: 10),
+                      //       // Padding(
+                      //       //   padding: const EdgeInsets.all(8),
+                      //       //   child: Text(
+                      //       //     'No reviews yet',
+                      //       //     style: TextStyle(
+                      //       //       fontSize: 21,
+                      //       //     ),
+                      //       //   ),
+                      //       // ),
+                      //       // Padding(
+                      //       //   padding: const EdgeInsets.all(8),
+                      //       //   child: Text(
+                      //       //     'Be The First To Review!',
+                      //       //     style: TextStyle(
+                      //       //       fontSize: 20,
+                      //       //       color: Colors.grey,
+                      //       //     ),
+                      //       //   ),
+                      //       // ),
+                      //       const SizedBox(height: 70),
+                      //       const Divider(
+                      //         thickness: 1,
+                      //         color: Colors.redAccent,
+                      //         height: 1,
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
