@@ -189,10 +189,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       obscureText: _isVisible,
                       key: ValueKey('password'),
                       validator: (value) {
-                        if (value!.isEmpty || value.length < 8) {
-                          return 'Password must be atleast 8 units';
+                        RegExp regex = new RegExp(r'^.{6,}$');
+                        if (value!.isEmpty) {
+                          return ("Password is required for login");
                         }
-                        return null;
+                        if (!regex.hasMatch(value)) {
+                          return ("Enter Valid Password(Min. 6 Character)");
+                        }
                       },
                       decoration: InputDecoration(
                         labelText: 'Password',
