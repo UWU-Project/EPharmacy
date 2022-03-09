@@ -147,7 +147,7 @@ Widget _bottomCheckoutSectiomn(BuildContext context, double totalAmount) {
 
                 User? user = FirebaseAuth.instance.currentUser;
                 final _uid = user!.uid;
-                final String? _name = user!.displayName;
+                final String? _name = user.displayName;
                 final String? number = '0714392888';
                 final String? adds = '35/5, Henegedara Road, Maharagama';
 
