@@ -176,10 +176,10 @@ class _HomeScreenState extends State<HomeScreenNew> {
           ),
 
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(50,0,0,0),
+                padding: const EdgeInsets.fromLTRB(0,0,30,0),
                 child: Card(
                   color: Colors.pinkAccent,
                   elevation: 20,
@@ -203,7 +203,7 @@ class _HomeScreenState extends State<HomeScreenNew> {
 
               Card(
                 color: Colors.green,
-                elevation: 20,
+                elevation: 30,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(150),
                 ),
@@ -218,26 +218,26 @@ class _HomeScreenState extends State<HomeScreenNew> {
                 ),
               ),
 
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0,0,50,0),
-                child: Card(
-                  color: Colors.pinkAccent,
-                  elevation: 20,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(150),
-                  ),
-
-                  child: Column(
-                    children: [
-                      IconButton(
-                          icon: Icon(Icons.message),color: Colors.white, onPressed: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (_) => const ChatPage()));
-                      }),
-                    ],
-                  ),
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(0,0,50,0),
+              //   child: Card(
+              //     color: Colors.pinkAccent,
+              //     elevation: 20,
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(150),
+              //     ),
+              //
+              //     child: Column(
+              //       children: [
+              //         IconButton(
+              //             icon: Icon(Icons.message),color: Colors.white, onPressed: () {
+              //           Navigator.of(context)
+              //               .push(MaterialPageRoute(builder: (_) => const ChatPage()));
+              //         }),
+              //       ],
+              //     ),
+              //   ),
+              // ),
 
               // Padding(
               //   padding: const EdgeInsets.fromLTRB(0,0,50,0),
@@ -261,10 +261,10 @@ class _HomeScreenState extends State<HomeScreenNew> {
             const SizedBox(height: 8),
 
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(30,0,0,0),
+                padding: const EdgeInsets.fromLTRB(0,0,20,0),
                 child: Column(
                   children: const [
                     Text("My Prescriptions",
@@ -286,18 +286,18 @@ class _HomeScreenState extends State<HomeScreenNew> {
                 ],
               ),
 
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0,0,50,0),
-                child: Column(
-                  children: const [
-                    Text("  Messenger",
-                      style: TextStyle(fontWeight: FontWeight.w600,
-                          fontSize: 12,
-                          color: Colors.black),
-                    ),
-                  ],
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(0,0,50,0),
+              //   child: Column(
+              //     children: const [
+              //       Text("  Messenger",
+              //         style: TextStyle(fontWeight: FontWeight.w600,
+              //             fontSize: 12,
+              //             color: Colors.black),
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
 
