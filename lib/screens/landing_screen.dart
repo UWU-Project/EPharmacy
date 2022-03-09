@@ -158,40 +158,67 @@ class _LandingScreenState extends State<LandingScreen>
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Row(
+
                 children: [
-                  const SizedBox(width: 10),
+
                   Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (_) => const LoginScreen()));
-                      },
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(color: Colors.white),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (_) => const LoginScreen()));
+                        },
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (_) => const SignupScreen()));
-                      },
-                      child: const Text(
-                        'Signup',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 10),
+
+                  // const SizedBox(width: 10),
+                  // Expanded(
+                  //   child: ElevatedButton(
+                  //     onPressed: () {
+                  //       Navigator.of(context)
+                  //           .push(MaterialPageRoute(builder: (_) => const SignupScreen()));
+                  //     },
+                  //     child: const Text(
+                  //       'Signup',
+                  //       style: TextStyle(color: Colors.white),
+                  //     ),
+                  //   ),
+                  // ),
+
                 ],
               ),
-              const SizedBox(height: 20),
+
               Row(
                 children: [
-                  const SizedBox(width: 10),
+
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (_) => const SignupScreen()));
+                        },
+                        child: const Text(
+                          'Signup',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+
+              Row(
+                children: [
+
                   Expanded(
 
                     child: IconButton(
