@@ -3,14 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:payhere_mobilesdk_flutter/payhere_mobilesdk_flutter.dart';
 import 'package:pill_pal/models%20&%20providers/cart.dart';
-import 'package:pill_pal/models%20&%20providers/product.dart';
 import 'package:pill_pal/services/global_methods.dart';
 import 'package:pill_pal/services/stripe_payment.dart';
-
-
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
-import '../home_screen.dart';
 import 'empty_cart.dart';
 import 'full_cart.dart';
 
@@ -35,60 +31,54 @@ class _CartScreenState extends State<CartScreen> {
     final cartProvider = Provider.of<CartProvider>(context);
     GlobalMethods globalMethods = GlobalMethods();
 
-
-
-
     return cartProvider.cartList.isEmpty
-
-
-
         ? const Scaffold(
-      body: EmptyCart(),
-    )
+            body: EmptyCart(),
+          )
         : Scaffold(
-      appBar: AppBar(
-        title: Text('Cart (${cartProvider.cartList.length})'),
-        actions: [
-          IconButton(
-            onPressed: () async {
-              await globalMethods.showDialogue(
-                context,
-                    () => cartProvider.clearCart(),
-              );
-            },
-            icon: const Icon(Icons.delete),
-          ),
-        ],
-      ),
-      body: Container(
-        margin: const EdgeInsets.only(bottom: 60),
-        child: ListView.builder(
-          itemCount: cartProvider.cartList.length,
-          itemBuilder: (ctx, i) {
-            return ChangeNotifierProvider.value(
-              value: cartProvider.cartList.values.toList()[i],
-              child: FullCart(
-                pId: cartProvider.cartList.keys.toList()[i],
-                // id: cartProvider.cartList.values.toList()[i].cartId,
-                // imageUrl: cartProvider.cartList.values.toList()[i].imageUrl,
-                // price: cartProvider.cartList.values.toList()[i].price,
-                // quantity: cartProvider.cartList.values.toList()[i].quantity,
-                // title: cartProvider.cartList.values.toList()[i].title,
+            appBar: AppBar(
+              title: Text('Cart (${cartProvider.cartList.length})'),
+              actions: [
+                IconButton(
+                  onPressed: () async {
+                    await globalMethods.showDialogue(
+                      context,
+                      () => cartProvider.clearCart(),
+                    );
+                  },
+                  icon: const Icon(Icons.delete),
+                ),
+              ],
+            ),
+            body: Container(
+              margin: const EdgeInsets.only(bottom: 60),
+              child: ListView.builder(
+                itemCount: cartProvider.cartList.length,
+                itemBuilder: (ctx, i) {
+                  return ChangeNotifierProvider.value(
+                    value: cartProvider.cartList.values.toList()[i],
+                    child: FullCart(
+                      pId: cartProvider.cartList.keys.toList()[i],
+                      // id: cartProvider.cartList.values.toList()[i].cartId,
+                      // imageUrl: cartProvider.cartList.values.toList()[i].imageUrl,
+                      // price: cartProvider.cartList.values.toList()[i].price,
+                      // quantity: cartProvider.cartList.values.toList()[i].quantity,
+                      // title: cartProvider.cartList.values.toList()[i].title,
+                    ),
+                  );
+                },
               ),
-            );
-          },
-        ),
-      ),
-      bottomSheet:
-      _bottomCheckoutSectiomn(context, cartProvider.totalAmount),
-    );
+            ),
+            bottomSheet:
+                _bottomCheckoutSectiomn(context, cartProvider.totalAmount),
+          );
   }
 }
 
 Widget _bottomCheckoutSectiomn(BuildContext context, double totalAmount) {
   var _uuid = Uuid();
 
-  totalAmount=totalAmount+300;
+  totalAmount = totalAmount + 300;
 
   final cartProvider = Provider.of<CartProvider>(context);
 
@@ -102,7 +92,7 @@ Widget _bottomCheckoutSectiomn(BuildContext context, double totalAmount) {
       SnackBar(
         content: Text(response!.message),
         duration:
-        Duration(milliseconds: response!.success == true ? 1200 : 3000),
+            Duration(milliseconds: response!.success == true ? 1200 : 3000),
       ),
     );
   }
@@ -124,12 +114,15 @@ Widget _bottomCheckoutSectiomn(BuildContext context, double totalAmount) {
             ),
           ),
           ElevatedButton(
-            onPressed: (){
-
+            onPressed: () {
               Map paymentObject = {
-                "sandbox": true,  // true if using Sandbox Merchant ID
-                "merchant_id": "1219906",  // Replace your Merchant ID
-                "merchant_secret": "8X6CDtmECjn8Qh6ZehJe3o4ZCqs2w8AMR4uZrJih6PRr", // Replace your Merchant Secret
+                "sandbox": true,
+                // true if using Sandbox Merchant ID
+                "merchant_id": "1219906",
+                // Replace your Merchant ID
+                "merchant_secret":
+                    "8X6CDtmECjn8Qh6ZehJe3o4ZCqs2w8AMR4uZrJih6PRr",
+                // Replace your Merchant Secret
                 "notify_url": "http://sample.com/notify",
                 "order_id": "ItemNo12345",
                 "items": "Hello from Flutter!",
@@ -150,34 +143,44 @@ Widget _bottomCheckoutSectiomn(BuildContext context, double totalAmount) {
               };
 
               PayHere.startPayment(paymentObject, (paymentId) {
-              print("One Time Payment Success. Payment Id: $paymentId");
+                print("One Time Payment Success. Payment Id: $paymentId");
 
                 User? user = FirebaseAuth.instance.currentUser;
                 final _uid = user!.uid;
+                final String? _name = user!.displayName;
+                final String? number = '0714392888';
+                final String? adds = '35/5, Henegedara Road, Maharagama';
+
                 cartProvider.cartList.forEach((key, orderValue) async {
                   final orderId = _uuid.v4();
-                    await FirebaseFirestore.instance
-                        .collection('orders')
-                        .doc(orderId)
-                        .set({
-                      'orderId': orderId,
-                      'userId': _uid,
-                      'productId': orderValue.productId,
-                      'title': orderValue.title,
-                      'price': orderValue.price,
-                      'imageUrl': orderValue.imageUrl,
-                      'quantity': orderValue.quantity,
-                      'orderDate': Timestamp.now(),
-                    });
+                  final String order1 = 'Paid';
+                  await FirebaseFirestore.instance
+                      .collection('orders')
+                      .doc(orderId)
+                      .set({
+                    'orderId': orderId,
+                    'userId': _uid,
+                    'productId': orderValue.productId,
+                    'title': orderValue.title,
+                    'price': orderValue.price,
+                    'imageUrl': orderValue.imageUrl,
+                    'quantity': orderValue.quantity,
+                    'orderDate': Timestamp.now(),
+                    'orderStatus': order1,
+                    'userName': _name,
+                    'userNumber': number,
+                    'adds': adds,
+
+
+                  });
                 });
+                cartProvider.clearCart();
               }, (error) {
-              print("One Time Payment Failed. Error: $error");
-
+                print("One Time Payment Failed. Error: $error");
               }, () {
-              print("One Time Payment Dismissed");
-
+                print("One Time Payment Dismissed");
               });
-              },
+            },
 
             //Previous Stripe Payment Beginfrom Here
 
