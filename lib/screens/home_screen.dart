@@ -127,7 +127,7 @@ class _HomeScreenState extends State<HomeScreenNew> {
                         fontWeight:FontWeight.w500,
                         ),
                   ),
-                  Text("${loggedInUser.name}",
+                  Text(" ${loggedInUser.name}",
                       style:TextStyle(
                         color: Colors.black54,
                         fontWeight: FontWeight.w500,
@@ -150,7 +150,10 @@ class _HomeScreenState extends State<HomeScreenNew> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(icon: const Icon(Icons.camera_alt), color: Colors.white, onPressed: () {
+                  IconButton(
+                      icon: Image.asset('assets/1i.png'),
+                      color: Colors.white,
+                      onPressed: () {
                     Navigator.pushNamed(context, '/home');
 
                   }
@@ -362,7 +365,9 @@ class _HomeScreenState extends State<HomeScreenNew> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(icon: const Icon(Icons.rate_review_rounded), color: Colors.white,
+                    IconButton(
+                        icon: Image.asset('assets/5i.png'),
+                        color: Colors.white,
                         onPressed: () {
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (_) => PillID2()));
