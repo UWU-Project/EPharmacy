@@ -268,7 +268,7 @@ class _HomeScreenState extends State<HomeScreenNew> {
                 padding: const EdgeInsets.fromLTRB(0,0,20,0),
                 child: Column(
                   children: const [
-                    Text("My Prescriptions",
+                    Text("PresX BoX",
                       style: TextStyle(fontWeight: FontWeight.w600,
                           fontSize: 12,
                           color: Colors.black),

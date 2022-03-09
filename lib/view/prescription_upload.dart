@@ -46,7 +46,11 @@ class _PrescUploadState extends State<PrescUpload> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Prescription BOX'),
+        centerTitle: true,
+      ),
+
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
