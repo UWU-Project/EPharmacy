@@ -62,8 +62,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           Container(
             height: _headerHeight,
             child:
-            HeaderWidget(_headerHeight, true, Icons.adb), //let's create a common header widget
+            HeaderWidget(_headerHeight, true, Icons.reset_tv_rounded), //let's create a common header widget
           ),
+          const SizedBox(height: 130),
 
           Form(
             key: _formKey,
@@ -73,13 +74,13 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 80),
+                    const SizedBox(height: 150),
 
                     Text(
                       'Reset Password',
                       style: TextStyle(color: Colors.white),
                     ),
-                    const SizedBox(height: 60),
+                    const SizedBox(height: 100),
                     TextFormField(
                       onSaved: (value) {
                         _email = value!;
