@@ -414,7 +414,7 @@ class ProductProvider with ChangeNotifier {
             productCategoryName: element.get('productCategory'),
             quantity: int.parse(element.get('productQuantity')),
             isFavorite: false,
-            isPopular: false,
+            isPopular: true,
           ),
         );
       });
