@@ -235,6 +235,7 @@ class _LandingScreenState extends State<LandingScreen>
                     //   ),
                     // ),
                   ),
+
                   // const SizedBox(width: 10),
                   // Expanded(
                   //   child: _isLoading
@@ -251,6 +252,10 @@ class _LandingScreenState extends State<LandingScreen>
                   // ),
                   const SizedBox(width: 10),
                 ],
+              ),
+              Text(
+                'Signin with Google',
+                style: TextStyle(color: Colors.blueAccent),
               ),
               const SizedBox(height: 40),
             ],
