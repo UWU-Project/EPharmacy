@@ -1,20 +1,13 @@
 import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:pill_pal/screens/auth/login_screen.dart';
 import 'package:pill_pal/services/global_methods.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:pill_pal/login/models/user_model.dart';
-import 'package:pill_pal/pillreminder/pages/landing/landing1.dart';
 import 'package:pill_pal/widgets/header_widget.dart';
-import 'package:wave/config.dart';
-import 'package:wave/wave.dart';
-
-
-import '../../login/screens/home_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   static const routeName = '/Signup-screen';
@@ -82,8 +75,7 @@ class _SignupScreenState extends State<SignupScreen> {
         _url = await ref.getDownloadURL();
 
         await _auth.createUserWithEmailAndPassword(
-            email: _email.toLowerCase().trim(),
-            password: _password.trim());
+            email: _email.toLowerCase().trim(), password: _password.trim());
 
         final User? user = _auth.currentUser;
         final _uid = user!.uid;
@@ -136,10 +128,9 @@ class _SignupScreenState extends State<SignupScreen> {
         children: [
           Container(
             height: _headerHeight,
-            child:
-            HeaderWidget(_headerHeight, true, Icons.adb), //let's create a common header widget
+            child: HeaderWidget(_headerHeight, true,
+                Icons.adb), //let's create a common header widget
           ),
-
 
           // RotatedBox(
           //   quarterTurns: 2,
@@ -175,11 +166,13 @@ class _SignupScreenState extends State<SignupScreen> {
                           onTap: _getImage,
                           child: CircleAvatar(
                             radius: 50,
-                            backgroundColor: Colors.greenAccent,
+                            backgroundColor: Colors.redAccent,
                             backgroundImage:
-                            _image == null ? null : FileImage(_image!),
+                                _image == null ? null : FileImage(_image!),
                             child: Icon(
-                              _image == null ? Icons.photo_camera_rounded : null,
+                              _image == null
+                                  ? Icons.photo_camera_rounded
+                                  : null,
                               color: Colors.white,
                               size: 50,
                             ),
@@ -202,8 +195,12 @@ class _SignupScreenState extends State<SignupScreen> {
                           FocusScope.of(context).requestFocus(_numberFocusNode),
                       key: ValueKey('name'),
                       validator: (value) {
+                        RegExp regex = new RegExp(r'^.{3,}$');
                         if (value!.isEmpty) {
-                          return 'Please enter your full name';
+                          return ("Your Name cannot be Empty");
+                        }
+                        if (!regex.hasMatch(value)) {
+                          return ("Enter Valid name(Min. 3 Character)");
                         }
                         return null;
                       },
@@ -251,8 +248,13 @@ class _SignupScreenState extends State<SignupScreen> {
                       keyboardType: TextInputType.emailAddress,
                       key: ValueKey('email'),
                       validator: (value) {
-                        if (value!.isEmpty || !value.contains('@')) {
-                          return 'Please enter a valid email address';
+                        if (value!.isEmpty) {
+                          return ("Please Enter Your Email");
+                        }
+                        // reg expression for email validation
+                        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                            .hasMatch(value)) {
+                          return ("Please Enter a valid email");
                         }
                         return null;
                       },
@@ -276,10 +278,13 @@ class _SignupScreenState extends State<SignupScreen> {
                       obscureText: _isVisible,
                       key: ValueKey('password'),
                       validator: (value) {
-                        if (value!.isEmpty || value.length < 8) {
-                          return 'Password must be atleast 8 units';
+                        RegExp regex = new RegExp(r'^.{6,}$');
+                        if (value!.isEmpty) {
+                          return ("Password is required for login");
                         }
-                        return null;
+                        if (!regex.hasMatch(value)) {
+                          return ("Enter Valid Password(Min. 6 Character)");
+                        }
                       },
                       decoration: InputDecoration(
                         labelText: 'Password',
@@ -303,15 +308,15 @@ class _SignupScreenState extends State<SignupScreen> {
                     const SizedBox(height: 20),
                     _isLoading
                         ? Center(
-                      child: CircularProgressIndicator(),
-                    )
+                            child: CircularProgressIndicator(),
+                          )
                         : ElevatedButton(
-                      onPressed: _submitData,
-                      child: Text(
-                        'Signup',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
+                            onPressed: _submitData,
+                            child: Text(
+                              'Signup',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
                   ],
                 ),
               ),
