@@ -125,20 +125,21 @@ class _LandingScreenState extends State<LandingScreen>
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const SizedBox(height: 50),
-              Center(
-                child: Text(
-                  'Welcome to',
-                  style: TextStyle(fontSize: 45),
-                ),
-              ),
+              const SizedBox(height: 75),
               Center(
                 child: Text(
                   'E-PHARMA',
-                  style: TextStyle(fontSize: 65),
+                  style: TextStyle(fontSize: 65, fontWeight: FontWeight.bold),
+
                 ),
               ),
-              const SizedBox(height: 100),
+              Center(
+                child: Text(
+                  'YOUR MEDICAL PARTNER',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              const SizedBox(height: 60),
               Center(
                 child: Lottie.asset('assets/epicon.json'),
               ),
@@ -215,6 +216,16 @@ class _LandingScreenState extends State<LandingScreen>
                 ],
               ),
 
+              const SizedBox(height: 3),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Divider(
+                  thickness: 1,
+                  color: Colors.grey,
+                  height: 1,
+                ),
+              ),
+
 
               Row(
                 children: [
@@ -253,6 +264,7 @@ class _LandingScreenState extends State<LandingScreen>
                   const SizedBox(width: 10),
                 ],
               ),
+
               Text(
                 'Signin with Google',
                 style: TextStyle(color: Colors.blueAccent),
