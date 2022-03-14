@@ -23,5 +23,4 @@ abstract class MedicineDao {
 
   @Query('DELETE FROM medicines')
   Future<void> deleteAllMedicine();
-
 }

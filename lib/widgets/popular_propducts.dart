@@ -65,9 +65,9 @@ class PopularProducts extends StatelessWidget {
                       icon: wp.wishlistList.containsKey(productAttrribute.id)
                           ? Icon(Icons.favorite, color: Colors.red)
                           : Icon(
-                        Icons.favorite,
-                        color: Colors.white,
-                      ),
+                              Icons.favorite,
+                              color: Colors.white,
+                            ),
                     ),
                   );
                 }),
@@ -112,20 +112,20 @@ class PopularProducts extends StatelessWidget {
                   ),
                   InkWell(
                     onTap:
-                    cartProvider.cartList.containsKey(productAttrribute.id)
-                        ? () {}
-                        : () {
-                      cartProvider.addToCart(
-                        productAttrribute.id,
-                        productAttrribute.title,
-                        productAttrribute.imageUrl,
-                        productAttrribute.price,
-                      );
-                    },
+                        cartProvider.cartList.containsKey(productAttrribute.id)
+                            ? () {}
+                            : () {
+                                cartProvider.addToCart(
+                                  productAttrribute.id,
+                                  productAttrribute.title,
+                                  productAttrribute.imageUrl,
+                                  productAttrribute.price,
+                                );
+                              },
                     child:
-                    cartProvider.cartList.containsKey(productAttrribute.id)
-                        ? Icon(Icons.check)
-                        : Icon(Icons.add_shopping_cart),
+                        cartProvider.cartList.containsKey(productAttrribute.id)
+                            ? Icon(Icons.check)
+                            : Icon(Icons.add_shopping_cart),
                   ),
                 ],
               ),

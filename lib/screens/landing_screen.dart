@@ -1,13 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pill_pal/screens/auth/login_screen.dart';
 import 'package:pill_pal/screens/auth/signup_screen.dart';
-import 'package:pill_pal/screens/bottom_nav_screen.dart';
 import 'package:pill_pal/services/global_methods.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-
 
 class LandingScreen extends StatefulWidget {
   static const routeName = '/landing-screen';
@@ -130,7 +128,6 @@ class _LandingScreenState extends State<LandingScreen>
                 child: Text(
                   'E-PHARMA',
                   style: TextStyle(fontSize: 65, fontWeight: FontWeight.bold),
-
                 ),
               ),
               Center(
@@ -159,16 +156,14 @@ class _LandingScreenState extends State<LandingScreen>
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Row(
-
                 children: [
-
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (_) => const LoginScreen()));
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (_) => const LoginScreen()));
                         },
                         child: const Text(
                           'Login',
@@ -191,20 +186,17 @@ class _LandingScreenState extends State<LandingScreen>
                   //     ),
                   //   ),
                   // ),
-
                 ],
               ),
-
               Row(
                 children: [
-
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (_) => const SignupScreen()));
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (_) => const SignupScreen()));
                         },
                         child: const Text(
                           'Signup',
@@ -215,7 +207,6 @@ class _LandingScreenState extends State<LandingScreen>
                   ),
                 ],
               ),
-
               const SizedBox(height: 3),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -225,13 +216,9 @@ class _LandingScreenState extends State<LandingScreen>
                   height: 1,
                 ),
               ),
-
-
               Row(
                 children: [
-
                   Expanded(
-
                     child: IconButton(
                       icon: Image.asset('assets/3.png'),
                       tooltip: 'GOOGLE SIGN IN',
@@ -264,7 +251,6 @@ class _LandingScreenState extends State<LandingScreen>
                   const SizedBox(width: 10),
                 ],
               ),
-
               Text(
                 'Signin with Google',
                 style: TextStyle(color: Colors.blueAccent),
@@ -277,4 +263,3 @@ class _LandingScreenState extends State<LandingScreen>
     );
   }
 }
-

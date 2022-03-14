@@ -426,7 +426,7 @@ class ProductProvider with ChangeNotifier {
   List<Product> getByCatName(String catName) {
     List<Product> catList = _products
         .where((element) =>
-    element.productCategoryName.toLowerCase() == catName.toLowerCase())
+            element.productCategoryName.toLowerCase() == catName.toLowerCase())
         .toList();
     return catList;
   }
@@ -450,7 +450,7 @@ class ProductProvider with ChangeNotifier {
   List<Product> getBySearch(String search) {
     List<Product> prodList = _products
         .where((element) =>
-        element.title.toLowerCase().contains(search.toLowerCase()))
+            element.title.toLowerCase().contains(search.toLowerCase()))
         .toList();
     notifyListeners();
     return prodList;

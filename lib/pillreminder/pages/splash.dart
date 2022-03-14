@@ -8,7 +8,7 @@ class Splash extends StatefulWidget {
   SplashState createState() => new SplashState();
 }
 
-class SplashState extends State<Splash>  {
+class SplashState extends State<Splash> {
   Future checkFirstSeen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool _seen = (prefs.getBool('seen') ?? false);
@@ -18,7 +18,6 @@ class SplashState extends State<Splash>  {
     } else {
       await prefs.setBool('seen', true);
       Navigator.of(context).pushNamed('/landing1');
-
     }
   }
 
@@ -37,4 +36,3 @@ class SplashState extends State<Splash>  {
     );
   }
 }
-

@@ -9,19 +9,18 @@ import 'package:pill_pal/pillreminder/entities/medicine.dart';
 import 'package:pill_pal/pillreminder/entities/reminder.dart';
 import 'package:pill_pal/pillreminder/entities/reminderCheck.dart';
 import 'package:pill_pal/pillreminder/pages/calender/components/dateCard.dart';
-import 'package:pill_pal/theme.dart';
 import 'package:pill_pal/pillreminder/util/notificationUtil.dart';
+import 'package:pill_pal/theme.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class Calender extends StatefulWidget {
-  const Calender(
-      {Key? key,
-      required this.medicineDao,
-      required this.reminderDao,
-      required this.reminderCheckDao,
-      this.passedDay,
-      })
-      : super(key: key);
+  const Calender({
+    Key? key,
+    required this.medicineDao,
+    required this.reminderDao,
+    required this.reminderCheckDao,
+    this.passedDay,
+  }) : super(key: key);
 
   final MedicineDao medicineDao;
   final ReminderDao reminderDao;
@@ -38,8 +37,10 @@ class _CalenderState extends State<Calender> {
   DateTime? _selectedDay;
 
   List<Reminder> _selectedEvents = [];
+
   //Map cyclicEvents = new Map();
   List<List<dynamic>> _checkList = [];
+
   //Map timeMap = new Map();
   List timeColumnList = [];
   Medicine? med;
@@ -48,8 +49,9 @@ class _CalenderState extends State<Calender> {
 
   Future<List<Reminder>> getDayReminders(DateTime date) async {
     final reminders = widget.reminderDao.findReminderForDay(
-        DateTime(_selectedDay!.year, _selectedDay!.month, _selectedDay!.day).toString()
-        , _selectedDay!.weekday);
+        DateTime(_selectedDay!.year, _selectedDay!.month, _selectedDay!.day)
+            .toString(),
+        _selectedDay!.weekday);
     // final reminders = await widget.reminderDao.findReminderByDate(
     //     DateTime(date.year, date.month, date.day).toString());
     // if (!cyclicEvents.containsKey(date.weekday)) {
@@ -112,8 +114,9 @@ class _CalenderState extends State<Calender> {
       setState(() {
         _selectedEvents = value;
         _selectedEvents.sort((a, b) {
-          int cmp = DateTime( 1, 1, 1999, a.dateTime.hour, a.dateTime.minute)
-              .compareTo( DateTime(1, 1, 1999, b.dateTime.hour, b.dateTime.minute));
+          int cmp = DateTime(1, 1, 1999, a.dateTime.hour, a.dateTime.minute)
+              .compareTo(
+                  DateTime(1, 1, 1999, b.dateTime.hour, b.dateTime.minute));
           if (cmp != 0) return cmp;
           return a.medicineName.compareTo(b.medicineName);
         });
@@ -132,7 +135,7 @@ class _CalenderState extends State<Calender> {
       color: MyColors.Landing1,
       appBarRight: IconButton(
         icon: Icon(Icons.add),
-        onPressed: (){
+        onPressed: () {
           Navigator.pushNamed(context, '/reminder_add');
         },
       ),
@@ -152,16 +155,16 @@ class _CalenderState extends State<Calender> {
             child: TableCalendar(
               headerStyle: HeaderStyle(
                 formatButtonShowsNext: false,
-                titleTextStyle : Theme.of(context).textTheme.bodyText2!,
+                titleTextStyle: Theme.of(context).textTheme.bodyText2!,
                 formatButtonTextStyle: Theme.of(context).textTheme.overline!,
               ),
               availableCalendarFormats: const {
                 CalendarFormat.month: 'Month',
                 CalendarFormat.week: 'Week'
               },
-              daysOfWeekStyle :  DaysOfWeekStyle(
-                  weekdayStyle: Theme.of(context).textTheme.caption!,
-                  weekendStyle: Theme.of(context).textTheme.caption!,
+              daysOfWeekStyle: DaysOfWeekStyle(
+                weekdayStyle: Theme.of(context).textTheme.caption!,
+                weekendStyle: Theme.of(context).textTheme.caption!,
               ),
               calendarStyle: CalendarStyle(
                 selectedDecoration: BoxDecoration(
@@ -202,26 +205,30 @@ class _CalenderState extends State<Calender> {
           children: [
             DateCard(_selectedDay),
             SizedBox(height: 32),
-            _checkList.isEmpty?
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(32),
-                child: Text('No Reminders Today', style: TextStyle(color: Colors.black54),),
-              ),
-            ) :
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: _checkList.asMap().entries.map((checkItem) {
-                      return getReminderRow(checkItem.value, checkItem.key);
-                    }).toList(),
+            _checkList.isEmpty
+                ? Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(32),
+                      child: Text(
+                        'No Reminders Today',
+                        style: TextStyle(color: Colors.black54),
+                      ),
+                    ),
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: _checkList.asMap().entries.map((checkItem) {
+                            return getReminderRow(
+                                checkItem.value, checkItem.key);
+                          }).toList(),
+                        ),
+                      )
+                    ],
                   ),
-                )
-              ],
-            ),
           ],
         ),
       ),
@@ -260,8 +267,9 @@ class _CalenderState extends State<Calender> {
     var timeLabel =
         '${reminder.dateTime.hour < 10 ? '0' : ''}${reminder.dateTime.hour}:'
         '${reminder.dateTime.minute < 10 ? '0' : ''}${reminder.dateTime.minute}';
-    timeColumnList.isEmpty ||timeColumnList[0] != timeLabel ? timeColumnList.insert(0, timeLabel): timeLabel ='';
-
+    timeColumnList.isEmpty || timeColumnList[0] != timeLabel
+        ? timeColumnList.insert(0, timeLabel)
+        : timeLabel = '';
 
     return GestureDetector(
       onTap: () {
@@ -388,9 +396,10 @@ class _CalenderState extends State<Calender> {
                     constraints: const BoxConstraints(
                       minWidth: 75,
                     ),
-                    child: Text(timeLabel,
-                        style: TextStyle(
-                            fontSize: 18,
+                    child: Text(
+                      timeLabel,
+                      style: TextStyle(
+                          fontSize: 18,
                           color: MyColors.TealBlue,
                           fontWeight: FontWeight.bold),
                     ),
@@ -422,39 +431,46 @@ class _CalenderState extends State<Calender> {
                           children: [
                             Text(
                               '${reminder.medicineName}',
-                            style: TextStyle(
-                                fontSize: 17,
-                            fontWeight: FontWeight.w600),
+                              style: TextStyle(
+                                  fontSize: 17, fontWeight: FontWeight.w600),
                             ),
-                            reminder.day == 0?
-                            Text(
-                              'Everyday',
-                              style: Theme.of(context).textTheme.caption!.copyWith(
-                                  color: Colors.black54),
-                            )
-                            : reminder.repeated?
-                                Text(
-                                  'Every ${DateFormat('EEEE').format(reminder.dateTime)}',
-                                  style: Theme.of(context).textTheme.caption!.copyWith(
-                                      color: Colors.black54),
-                                    )
-                                : Text(
-                                    'Once',
-                                    style: Theme.of(context).textTheme.caption!.copyWith(
-                                        color: Colors.black54),
-                                  ),
+                            reminder.day == 0
+                                ? Text(
+                                    'Everyday',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .caption!
+                                        .copyWith(color: Colors.black54),
+                                  )
+                                : reminder.repeated
+                                    ? Text(
+                                        'Every ${DateFormat('EEEE').format(reminder.dateTime)}',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .caption!
+                                            .copyWith(color: Colors.black54),
+                                      )
+                                    : Text(
+                                        'Once',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .caption!
+                                            .copyWith(color: Colors.black54),
+                                      ),
                             isChecked
                                 ? Text(
-                                '${DateFormat('dd/MM/yyyy  kk:mm').format(reminderCheck!.checkedDateTime)}',
-                                  style: Theme.of(context).textTheme.caption!,
+                                    '${DateFormat('dd/MM/yyyy  kk:mm').format(reminderCheck!.checkedDateTime)}',
+                                    style: Theme.of(context).textTheme.caption!,
                                   )
                                 : reminder.label.isNotEmpty
-                                ? Text(
-                              '${reminder.label}',
-                              softWrap: true,
-                              style: Theme.of(context).textTheme.caption!,
-                            )
-                                : Container(),
+                                    ? Text(
+                                        '${reminder.label}',
+                                        softWrap: true,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .caption!,
+                                      )
+                                    : Container(),
                           ],
                         ),
                       ),
@@ -478,8 +494,10 @@ class _CalenderState extends State<Calender> {
       builder: (BuildContext context) {
         return AlertDialog(
           content: SingleChildScrollView(
-              child: Text('This reminder will be permanently deleted.',
-                style: TextStyle(fontSize: 14),)),
+              child: Text(
+            'This reminder will be permanently deleted.',
+            style: TextStyle(fontSize: 14),
+          )),
           actions: [
             TextButton(
               child: Text(

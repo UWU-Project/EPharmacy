@@ -36,7 +36,8 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
                 FirebaseAuth.instance.signOut();
                 final prefs = await SharedPreferences.getInstance();
                 prefs.setString('uid', '');
-                final route = MaterialPageRoute(builder: (_) => LandingScreen());
+                final route =
+                    MaterialPageRoute(builder: (_) => LandingScreen());
                 Navigator.pushReplacement(context, route);
               },
             ),
@@ -97,7 +98,7 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
                     final leftSide = users.sublist(0, halfLength);
 
                     final room =
-                    await FirebaseChatCore.instance.createGroupRoom(
+                        await FirebaseChatCore.instance.createGroupRoom(
                       imageUrl: '',
                       name: controller.text,
                       users: users,
@@ -158,7 +159,7 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
                 title: Text(user.firstName! + ' ' + user.lastName!),
                 onTap: () async {
                   final room =
-                  await FirebaseChatCore.instance.createRoom(users[index]);
+                      await FirebaseChatCore.instance.createRoom(users[index]);
                   final route = MaterialPageRoute(
                     builder: (_) => ChatScreen(roomId: room.id),
                   );
@@ -214,26 +215,26 @@ class _ChatHistoryScreenState extends State<ChatHistoryScreen> {
     );
   }
 
-/// _fetchUsers() async {
-///   CollectionReference users = FirebaseFirestore.instance.collection('users');
-///
-///   final selfUid = FirebaseAuth.instance.currentUser!.uid;
-///
-///   users.get().then((querySnapshot) {
-///     final users = querySnapshot.docs.map((result) {
-///       return ChatListUser(
-///         uid: result.id,
-///         firstName: result['firstName'],
-///         lastName: result['lastName'],
-///       );
-///     }).toList();
-///
-///     this.users = users.where((element) => selfUid != element.uid).toList();
-///     setState(() {
-///       _isLoading = false;
-///     });
-///   });
-/// }
+  /// _fetchUsers() async {
+  ///   CollectionReference users = FirebaseFirestore.instance.collection('users');
+  ///
+  ///   final selfUid = FirebaseAuth.instance.currentUser!.uid;
+  ///
+  ///   users.get().then((querySnapshot) {
+  ///     final users = querySnapshot.docs.map((result) {
+  ///       return ChatListUser(
+  ///         uid: result.id,
+  ///         firstName: result['firstName'],
+  ///         lastName: result['lastName'],
+  ///       );
+  ///     }).toList();
+  ///
+  ///     this.users = users.where((element) => selfUid != element.uid).toList();
+  ///     setState(() {
+  ///       _isLoading = false;
+  ///     });
+  ///   });
+  /// }
 
 }
 

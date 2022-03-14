@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:badges/badges.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -41,7 +42,7 @@ class _UserScreenState extends State<UserScreen> {
       return;
     } else {
       final DocumentSnapshot userDocs =
-      await FirebaseFirestore.instance.collection('users').doc(_uid).get();
+          await FirebaseFirestore.instance.collection('users').doc(_uid).get();
       setState(() {
         _name = user.displayName.toString();
         _email = userDocs.get('email');
@@ -204,21 +205,21 @@ class _UserScreenState extends State<UserScreen> {
                       Card(
                         child: Consumer<ThemeNotifier>(
                             builder: (context, notifier, _) {
-                              return SwitchListTile.adaptive(
-                                secondary: notifier.isDark
-                                    ? Icon(Icons.dark_mode,
+                          return SwitchListTile.adaptive(
+                            secondary: notifier.isDark
+                                ? Icon(Icons.dark_mode,
                                     color: Colors.amber.shade700)
-                                    : Icon(Icons.light_mode,
+                                : Icon(Icons.light_mode,
                                     color: Colors.amber.shade700),
-                                title: notifier.isDark
-                                    ? const Text('Dark Mode')
-                                    : const Text('Light Mode'),
-                                value: notifier.isDark,
-                                onChanged: (value) {
-                                  notifier.toggleTheme(value);
-                                },
-                              );
-                            }),
+                            title: notifier.isDark
+                                ? const Text('Dark Mode')
+                                : const Text('Light Mode'),
+                            value: notifier.isDark,
+                            onChanged: (value) {
+                              notifier.toggleTheme(value);
+                            },
+                          );
+                        }),
                       ),
                       _userListTile(
                         lIcon: Icons.power_settings_new,
@@ -321,6 +322,7 @@ class _userListTile extends StatelessWidget {
   final IconData? tIcon;
   final VoidCallback? tIconCallBack;
   final VoidCallback? onTap;
+
   const _userListTile({
     this.subTitle,
     this.tIcon,
@@ -355,6 +357,7 @@ class _userListTile extends StatelessWidget {
 // ignore: camel_case_types
 class _userTileHeightSpace extends StatelessWidget {
   final double height;
+
   const _userTileHeightSpace({
     Key? key,
     required this.height,
@@ -369,6 +372,7 @@ class _userTileHeightSpace extends StatelessWidget {
 // ignore: camel_case_types
 class _userTileText extends StatelessWidget {
   final String text;
+
   const _userTileText({
     Key? key,
     required this.text,
@@ -386,4 +390,3 @@ class _userTileText extends StatelessWidget {
     );
   }
 }
-

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pill_pal/models%20&%20providers/cart.dart';
 import 'package:pill_pal/models%20&%20providers/wishlist.dart';
 import 'package:pill_pal/screens/inner_screens/product_details_screen.dart';
 import 'package:provider/provider.dart';
 
 class FullWishlist extends StatefulWidget {
   final String pId;
+
   const FullWishlist({
     Key? key,
     required this.pId,

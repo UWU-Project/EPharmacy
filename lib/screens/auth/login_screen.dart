@@ -5,10 +5,7 @@ import 'package:pill_pal/pillreminder/database.dart';
 import 'package:pill_pal/screens/auth/reset_password_screen.dart';
 import 'package:pill_pal/screens/auth/signup_screen.dart';
 import 'package:pill_pal/services/global_methods.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:pill_pal/pillreminder/pages/landing/landing1.dart';
 import 'package:pill_pal/widgets/header_widget.dart';
-
 
 class LoginScreen extends StatefulWidget {
   static const routeName = '/Login-screen';
@@ -19,14 +16,13 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-
-
 class _LoginScreenState extends State<LoginScreen> {
   // late final database;
   // late final medicineDao;
   // late final reminderDao;
   // late final reminderCheckDao;
   double _headerHeight = 250;
+
   void _chanageVisibility() {
     setState(() {
       _isVisible = !_isVisible;
@@ -45,9 +41,6 @@ class _LoginScreenState extends State<LoginScreen> {
   GlobalMethods _globalMethods = GlobalMethods();
 
   void _submitData() async {
-
-
-
     final _isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
     if (_isValid) {
@@ -57,25 +50,25 @@ class _LoginScreenState extends State<LoginScreen> {
       _formKey.currentState!.save();
     }
     try {
-
       final database =
-      await $FloorAppDatabase.databaseBuilder('app_database.db').build();
+          await $FloorAppDatabase.databaseBuilder('app_database.db').build();
       final medicineDao = database.medicineDao;
       final reminderDao = database.reminderDao;
       final reminderCheckDao = database.reminderCheckDao;
 
       await _auth
           .signInWithEmailAndPassword(
-          email: _email.toLowerCase().trim(), password: _password)
-          .then((value) async => Navigator.canPop(context) ?
-      
-      // Navigator.pop(context) 
-      await Navigator.of(context)
-          .push(MaterialPageRoute(builder: (_) => HomeNew(medicineDao: medicineDao, reminderDao: reminderDao, reminderCheckDao: reminderCheckDao)))
-          : null);
+              email: _email.toLowerCase().trim(), password: _password)
+          .then((value) async => Navigator.canPop(context)
+              ?
 
-  
-
+              // Navigator.pop(context)
+              await Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => HomeNew(
+                      medicineDao: medicineDao,
+                      reminderDao: reminderDao,
+                      reminderCheckDao: reminderCheckDao)))
+              : null);
     } catch (error) {
       _globalMethods.authDialog(context, error.toString());
     } finally {
@@ -93,25 +86,16 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-
-
-
-
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       backgroundColor: Colors.white,
-
-
-      body:
-
-      Stack(
+      body: Stack(
         children: [
           Container(
             height: _headerHeight,
-            child: HeaderWidget(_headerHeight, true, Icons.login_outlined), //let's create a common header widget
+            child: HeaderWidget(_headerHeight, true,
+                Icons.login_outlined), //let's create a common header widget
           ),
 
           // RotatedBox(
@@ -145,16 +129,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     Center(
                       child: Text(
                         ' ',
-                        style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 60, fontWeight: FontWeight.bold),
                       ),
-
                     ),
                     Text(
                       'Signin into your account',
                       style: TextStyle(color: Colors.white),
                     ),
                     const SizedBox(height: 130),
-
                     TextFormField(
                       onSaved: (value) {
                         _email = value!;
@@ -219,20 +202,20 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 20),
                     _isLoading
                         ? Center(
-                      child: CircularProgressIndicator(),
-                    )
+                            child: CircularProgressIndicator(),
+                          )
                         : ElevatedButton(
-                          onPressed: _submitData,
-                          child: Text(
-                            'Login',
-                            style: TextStyle(color: Colors.white),
-                           ),
-                    ),
+                            onPressed: _submitData,
+                            child: Text(
+                              'Login',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
                     const SizedBox(height: 20),
                     TextButton(
                       onPressed: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (_) => const ResetPasswordScreen()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (_) => const ResetPasswordScreen()));
                       },
                       child: Text(
                         'Forgot Password?',
@@ -250,9 +233,9 @@ class _LoginScreenState extends State<LoginScreen> {
               Center(
                 child: TextButton(
                   onPressed: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (_) => const SignupScreen()));
-                        // .pushReplacementNamed(SignupScreen.routeName);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => const SignupScreen()));
+                    // .pushReplacementNamed(SignupScreen.routeName);
                   },
                   child: Text(
                     'Create an Account',

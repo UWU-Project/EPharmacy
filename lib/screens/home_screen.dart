@@ -34,7 +34,6 @@ class HomeScreenNew extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreenNew> {
-
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
 
@@ -92,16 +91,13 @@ class _HomeScreenState extends State<HomeScreenNew> {
               );
             }),
             IconButton(
-              onPressed: () {
-                logout(context);
-              },
-              icon: const Icon(Icons.logout)
-
-            ),
+                onPressed: () {
+                  logout(context);
+                },
+                icon: const Icon(Icons.logout)),
           ],
         ),
         backLayer: const BackLayer(),
-
         frontLayer: ListView(
           children: [
             SizedBox(
@@ -115,7 +111,6 @@ class _HomeScreenState extends State<HomeScreenNew> {
               ),
             ),
 
-
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -123,17 +118,16 @@ class _HomeScreenState extends State<HomeScreenNew> {
                   Text(
                     "WELCOME,",
                     style: TextStyle(
-                        fontSize: 18,
-                        fontWeight:FontWeight.w500,
-                        ),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   Text(" ${loggedInUser.name}",
-                      style:TextStyle(
+                      style: TextStyle(
                         color: Colors.black54,
                         fontWeight: FontWeight.w500,
-                          fontSize: 18,
-                      )
-                  ),
+                        fontSize: 18,
+                      )),
                   // Text("  ${loggedInUser.email}",
                   //     style: TextStyle(
                   //       color: Colors.black54,
@@ -144,168 +138,168 @@ class _HomeScreenState extends State<HomeScreenNew> {
               ),
             ),
 
-
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                      icon: Image.asset('assets/1i.png'),
-                      color: Colors.white,
-                      onPressed: () {
-                    Navigator.pushNamed(context, '/home');
-
-                  }
-                  ),
-                  const Text("PILL REMINDER",
-                    style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15,color: Colors.white),
-                  ),
-
-                ],
-
-              ),
-            ),
-            elevation: 8,
-            color: Colors.blue,
-            margin: EdgeInsets.all(20),
-            shape:  OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Colors.blueAccent, width: 1)
-            ),
-          ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0,0,30,0),
-                child: Card(
-                  color: Colors.pinkAccent,
-                  elevation: 20,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(150),
-                  ),
-
-                  child: Column(
-                    children: [
-
-                      IconButton(
-                          icon: Icon(Icons.graphic_eq_rounded),color: Colors.white, onPressed: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (_) => const PrescUpload()));
-                      }),
-
-                    ],
-                  ),
-                ),
-              ),
-
-              Card(
-                color: Colors.green,
-                elevation: 30,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(150),
-                ),
-                child: Column(
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(
-                        icon: Icon(Icons.rate_review_rounded),color: Colors.white, onPressed: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (_) => const HomePage()));
-                    }),
+                        icon: Image.asset('assets/1i.png'),
+                        color: Colors.white,
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/home');
+                        }),
+                    const Text(
+                      "PILL REMINDER",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15,
+                          color: Colors.white),
+                    ),
                   ],
                 ),
               ),
+              elevation: 8,
+              color: Colors.blue,
+              margin: EdgeInsets.all(20),
+              shape: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: Colors.blueAccent, width: 1)),
+            ),
 
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(0,0,50,0),
-              //   child: Card(
-              //     color: Colors.pinkAccent,
-              //     elevation: 20,
-              //     shape: RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.circular(150),
-              //     ),
-              //
-              //     child: Column(
-              //       children: [
-              //         IconButton(
-              //             icon: Icon(Icons.message),color: Colors.white, onPressed: () {
-              //           Navigator.of(context)
-              //               .push(MaterialPageRoute(builder: (_) => const ChatPage()));
-              //         }),
-              //       ],
-              //     ),
-              //   ),
-              // ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                  child: Card(
+                    color: Colors.pinkAccent,
+                    elevation: 20,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(150),
+                    ),
+                    child: Column(
+                      children: [
+                        IconButton(
+                            icon: Icon(Icons.graphic_eq_rounded),
+                            color: Colors.white,
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (_) => const PrescUpload()));
+                            }),
+                      ],
+                    ),
+                  ),
+                ),
 
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(0,0,50,0),
-              //   child: Card(
-              //     color: Colors.redAccent,
-              //     elevation: 20,
-              //     shape: RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.circular(150),
-              //     ),
-              //     child: Column(
-              //       children: [
-              //         IconButton(
-              //             icon: Icon(Icons.message), color: Colors.white,onPressed: () {}),
-              //       ],
-              //     ),
-              //   ),
-              // ),
-            ],
-          ),
+                Card(
+                  color: Colors.green,
+                  elevation: 30,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(150),
+                  ),
+                  child: Column(
+                    children: [
+                      IconButton(
+                          icon: Icon(Icons.rate_review_rounded),
+                          color: Colors.white,
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (_) => const HomePage()));
+                          }),
+                    ],
+                  ),
+                ),
+
+                // Padding(
+                //   padding: const EdgeInsets.fromLTRB(0,0,50,0),
+                //   child: Card(
+                //     color: Colors.pinkAccent,
+                //     elevation: 20,
+                //     shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(150),
+                //     ),
+                //
+                //     child: Column(
+                //       children: [
+                //         IconButton(
+                //             icon: Icon(Icons.message),color: Colors.white, onPressed: () {
+                //           Navigator.of(context)
+                //               .push(MaterialPageRoute(builder: (_) => const ChatPage()));
+                //         }),
+                //       ],
+                //     ),
+                //   ),
+                // ),
+
+                // Padding(
+                //   padding: const EdgeInsets.fromLTRB(0,0,50,0),
+                //   child: Card(
+                //     color: Colors.redAccent,
+                //     elevation: 20,
+                //     shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(150),
+                //     ),
+                //     child: Column(
+                //       children: [
+                //         IconButton(
+                //             icon: Icon(Icons.message), color: Colors.white,onPressed: () {}),
+                //       ],
+                //     ),
+                //   ),
+                // ),
+              ],
+            ),
 
             const SizedBox(height: 8),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0,0,20,0),
-                child: Column(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+                  child: Column(
+                    children: const [
+                      Text(
+                        "PresX BoX",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 12,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Column(
                   children: const [
-                    Text("PresX BoX",
-                      style: TextStyle(fontWeight: FontWeight.w600,
+                    Text(
+                      "OCR Reader",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
                           fontSize: 12,
                           color: Colors.black),
                     ),
                   ],
                 ),
-              ),
 
-              Column(
-                children: const [
-                  Text("OCR Reader",
-                    style: TextStyle(fontWeight: FontWeight.w600,
-                        fontSize: 12,
-                        color: Colors.black),
-                  ),
-                ],
-              ),
-
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(0,0,50,0),
-              //   child: Column(
-              //     children: const [
-              //       Text("  Messenger",
-              //         style: TextStyle(fontWeight: FontWeight.w600,
-              //             fontSize: 12,
-              //             color: Colors.black),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-            ],
-          ),
-
+                // Padding(
+                //   padding: const EdgeInsets.fromLTRB(0,0,50,0),
+                //   child: Column(
+                //     children: const [
+                //       Text("  Messenger",
+                //         style: TextStyle(fontWeight: FontWeight.w600,
+                //             fontSize: 12,
+                //             color: Colors.black),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+              ],
+            ),
 
             const SizedBox(height: 8),
-
-
 
             // // Pill Identifier Button 272 - 298
             // Row(
@@ -370,27 +364,26 @@ class _HomeScreenState extends State<HomeScreenNew> {
                         icon: Image.asset('assets/5i.png'),
                         color: Colors.white,
                         onPressed: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (_) => PillID2()));
-                    }
+                          Navigator.of(context).push(
+                              MaterialPageRoute(builder: (_) => PillID2()));
+                        }),
+                    const Text(
+                      "PILL IDENTIFIER",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15,
+                          color: Colors.white),
                     ),
-                    const Text("PILL IDENTIFIER",
-                      style: TextStyle(fontWeight: FontWeight.w600,fontSize: 15,color: Colors.white),
-                    ),
-
                   ],
-
                 ),
               ),
               elevation: 8,
               color: Colors.blue,
               margin: EdgeInsets.all(20),
-              shape:  OutlineInputBorder(
+              shape: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: Colors.blueAccent, width: 1)
-              ),
+                  borderSide: BorderSide(color: Colors.blueAccent, width: 1)),
             ),
-
 
             const SizedBox(height: 8),
 
@@ -511,6 +504,7 @@ class _HomeScreenState extends State<HomeScreenNew> {
       ),
     );
   }
+
   // the logout function
   Future<void> logout(BuildContext context) async {
     await FirebaseAuth.instance.signOut();

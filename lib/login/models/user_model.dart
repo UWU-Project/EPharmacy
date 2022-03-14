@@ -1,4 +1,4 @@
-class UserModel{
+class UserModel {
   String? id;
   String? email;
   String? name;
@@ -9,22 +9,18 @@ class UserModel{
   //receiving data from the server
   factory UserModel.fromMap(map) {
     return UserModel(
-      id: map['id'],
-      email: map['email'],
-      name: map['name'],
-      imageURL: map['imageURL']
-
-    );
+        id: map['id'],
+        email: map['email'],
+        name: map['name'],
+        imageURL: map['imageURL']);
   }
+
   //sending data to the server
-  Map<String, dynamic> toMap(){
-   return{
-     'uid': id,
-     'email': email,
-     'displayName' : name,
-
-   };
+  Map<String, dynamic> toMap() {
+    return {
+      'uid': id,
+      'email': email,
+      'displayName': name,
+    };
   }
-
-
 }

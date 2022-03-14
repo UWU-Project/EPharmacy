@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pill_pal/screens/bottom_nav_screen.dart';
-import 'package:pill_pal/screens/feeds_screen.dart';
 
 class EmptyOrder extends StatelessWidget {
   const EmptyOrder({Key? key}) : super(key: key);

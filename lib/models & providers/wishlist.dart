@@ -16,6 +16,7 @@ class Wishlist with ChangeNotifier {
 
 class WishlistProvider with ChangeNotifier {
   final Map<String, Wishlist> _wishlistList = {};
+
   Map<String, Wishlist> get wishlistList => _wishlistList;
 
   void addOrRemoveFromWishlist(
@@ -25,7 +26,7 @@ class WishlistProvider with ChangeNotifier {
     } else {
       _wishlistList.putIfAbsent(
         pId,
-            () => Wishlist(
+        () => Wishlist(
           cartId: DateTime.now().toIso8601String(),
           title: title,
           imageUrl: imageUrl,

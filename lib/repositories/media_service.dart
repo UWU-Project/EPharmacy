@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:pill_pal/model/data_layer.dart';

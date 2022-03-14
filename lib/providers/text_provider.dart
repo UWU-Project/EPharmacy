@@ -9,6 +9,7 @@ class TextViewModel extends BaseModel {
   List<RecognizedText>? _processedTexts;
 
   List<RecognizedText>? get processedTexts => _processedTexts;
+
   ImageViewModel get imageProvider => _imageProvider;
 
   set imageProvider(ImageViewModel imageProvider) {

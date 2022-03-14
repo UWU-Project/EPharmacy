@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pill_pal/screens/bottom_nav_screen.dart';
 import 'package:pill_pal/screens/inner_screens/upload_product_screen.dart';
-import 'package:pill_pal/screens/landing_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);

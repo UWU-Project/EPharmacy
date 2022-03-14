@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pill_pal/theme.dart';
 
 class DayChip extends StatelessWidget {
-  const DayChip({Key? key,
-    this.label ='',
-    this.selected = false,
-    this.onSelected
-  }) : super(key: key);
+  const DayChip(
+      {Key? key, this.label = '', this.selected = false, this.onSelected})
+      : super(key: key);
 
   final String label;
   final bool selected;

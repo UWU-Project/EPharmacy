@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 class FullCart extends StatefulWidget {
   final String pId;
+
   // final String id;
   // final String title;
   // final String imageUrl;

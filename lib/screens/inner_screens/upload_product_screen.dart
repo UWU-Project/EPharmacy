@@ -1,12 +1,13 @@
 import 'dart:io';
-import 'package:uuid/uuid.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pill_pal/services/global_methods.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pill_pal/services/global_methods.dart';
+import 'package:uuid/uuid.dart';
 
 class UploadProductScreen extends StatefulWidget {
   static const routeName = '/upload-product-screen';
@@ -140,12 +141,12 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
           onPressed: _trySubmit,
           child: _isLoading
               ? Center(
-            child: CircularProgressIndicator(),
-          )
+                  child: CircularProgressIndicator(),
+                )
               : Text(
-            'S U B M i T',
-            style: TextStyle(color: Colors.white),
-          ),
+                  'S U B M i T',
+                  style: TextStyle(color: Colors.white),
+                ),
         ),
       ),
       body: SafeArea(
@@ -161,25 +162,25 @@ class _UploadProductScreenState extends State<UploadProductScreen> {
                       Expanded(
                         child: _image == null
                             ? Container(
-                          height: 200,
-                          width: 200,
-                          decoration: BoxDecoration(
-                            border:
-                            Border.all(width: 2, color: Colors.grey),
-                          ),
-                        )
+                                height: 200,
+                                width: 200,
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(width: 2, color: Colors.grey),
+                                ),
+                              )
                             : Container(
-                          height: 200,
-                          width: 200,
-                          decoration: BoxDecoration(
-                            border:
-                            Border.all(width: 2, color: Colors.grey),
-                          ),
-                          child: Image.file(
-                            _image!,
-                            fit: BoxFit.contain,
-                          ),
-                        ),
+                                height: 200,
+                                width: 200,
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(width: 2, color: Colors.grey),
+                                ),
+                                child: Image.file(
+                                  _image!,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
                       ),
                       Column(
                         children: [

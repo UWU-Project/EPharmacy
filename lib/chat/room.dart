@@ -54,7 +54,7 @@ class _RoomsPageState extends State<RoomsPage> {
     if (room.type == types.RoomType.direct) {
       try {
         final otherUser = room.users.firstWhere(
-              (u) => u.id != _user!.uid,
+          (u) => u.id != _user!.uid,
         );
 
         color = getUserAvatarNameColor(otherUser);
@@ -74,9 +74,9 @@ class _RoomsPageState extends State<RoomsPage> {
         radius: 20,
         child: !hasImage
             ? Text(
-          name.isEmpty ? '' : name[0].toUpperCase(),
-          style: const TextStyle(color: Colors.white),
-        )
+                name.isEmpty ? '' : name[0].toUpperCase(),
+                style: const TextStyle(color: Colors.white),
+              )
             : null,
       ),
     );
@@ -100,13 +100,13 @@ class _RoomsPageState extends State<RoomsPage> {
             onPressed: _user == null
                 ? null
                 : () {
-              // Navigator.of(context).push(
-              //   MaterialPageRoute(
-              //     fullscreenDialog: true,
-              //     // builder: (context) => const UsersPage(),
-              //   ),
-              // );
-            },
+                    // Navigator.of(context).push(
+                    //   MaterialPageRoute(
+                    //     fullscreenDialog: true,
+                    //     // builder: (context) => const UsersPage(),
+                    //   ),
+                    // );
+                  },
           ),
         ],
         leading: IconButton(
@@ -118,74 +118,74 @@ class _RoomsPageState extends State<RoomsPage> {
       ),
       body: _user == null
           ? Container(
-        alignment: Alignment.center,
-        margin: const EdgeInsets.only(
-          bottom: 200,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Not authenticated'),
-            TextButton(
-              onPressed: () {
-                // Navigator.of(context).push(
-                //   // MaterialPageRoute(
-                //   //   fullscreenDialog: true,
-                //   //   builder: (context) => const LoginPage(),
-                //   // ),
-                // );
-              },
-              child: const Text('Login'),
-            ),
-          ],
-        ),
-      )
-          : StreamBuilder<List<types.Room>>(
-        stream: FirebaseChatCore.instance.rooms(),
-        initialData: const [],
-        builder: (context, snapshot) {
-          if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Container(
               alignment: Alignment.center,
               margin: const EdgeInsets.only(
                 bottom: 200,
               ),
-              child: const Text('No rooms'),
-            );
-          }
-
-          return ListView.builder(
-            itemCount: snapshot.data!.length,
-            itemBuilder: (context, index) {
-              final room = snapshot.data![index];
-
-              return GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ChatPage(
-                        // room: room,
-                      ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('Not authenticated'),
+                  TextButton(
+                    onPressed: () {
+                      // Navigator.of(context).push(
+                      //   // MaterialPageRoute(
+                      //   //   fullscreenDialog: true,
+                      //   //   builder: (context) => const LoginPage(),
+                      //   // ),
+                      // );
+                    },
+                    child: const Text('Login'),
+                  ),
+                ],
+              ),
+            )
+          : StreamBuilder<List<types.Room>>(
+              stream: FirebaseChatCore.instance.rooms(),
+              initialData: const [],
+              builder: (context, snapshot) {
+                if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                  return Container(
+                    alignment: Alignment.center,
+                    margin: const EdgeInsets.only(
+                      bottom: 200,
                     ),
+                    child: const Text('No rooms'),
                   );
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 8,
-                  ),
-                  child: Row(
-                    children: [
-                      _buildAvatar(room),
-                      Text(room.name ?? ''),
-                    ],
-                  ),
-                ),
-              );
-            },
-          );
-        },
-      ),
+                }
+
+                return ListView.builder(
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (context, index) {
+                    final room = snapshot.data![index];
+
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => ChatPage(
+                                // room: room,
+                                ),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 8,
+                        ),
+                        child: Row(
+                          children: [
+                            _buildAvatar(room),
+                            Text(room.name ?? ''),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
     );
   }
 }

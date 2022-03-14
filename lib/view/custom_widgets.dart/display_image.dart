@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class DisplayImage extends StatelessWidget {
   final String? path;
+
   const DisplayImage(this.path, {Key? key}) : super(key: key);
 
   @override

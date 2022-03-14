@@ -26,43 +26,44 @@ class HomePage extends StatelessWidget {
           ),
           Consumer<ImageViewModel>(
             builder: (_, imageProvider, __) =>
-                (imageProvider.state == CurrentState.loading)
-                    ? const Center(child: CircularProgressIndicator())
-                    : (imageProvider.state == CurrentState.loaded)
-                        ? Column(
-                            children: [
-                              DisplayImage(imageProvider.image.imagePath),
-                              const SizedBox(
-                                height: 15.0,
-                              ),
-                              CustomButton(
-                                  text: 'Get another image',
-                                  onTap: imageProvider.getImage)
-                            ],
-                          )
-                        : CustomButton(
-                            text: 'Upload Prescription',
-                            onTap: imageProvider.getImage,
-
+            (imageProvider.state == CurrentState.loading)
+                ? const Center(child: CircularProgressIndicator())
+                : (imageProvider.state == CurrentState.loaded)
+                ? Column(
+              children: [
+                DisplayImage(imageProvider.image.imagePath),
+                const SizedBox(
+                  height: 15.0,
                 ),
+                CustomButton(
+                    text: 'Get another image',
+                    onTap: imageProvider.getImage)
+              ],
+            )
+                : CustomButton(
+              text: 'Upload Prescription',
+              onTap: imageProvider.getImage,
+
+            ),
 
           ),
           const SizedBox(
             height: 15.0,
           ),
           Consumer2<TextViewModel, ImageViewModel>(
-            builder: (_, textProvider, imageProvider, __) => ElevatedButton(
-              onPressed: (imageProvider.image == null)
-                  ? null
-                  : () {
-                      textProvider.getText();
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const ResultPage()));
-                    },
-              child: const Text('Get OCR Text'),
-            ),
+            builder: (_, textProvider, imageProvider, __) =>
+                ElevatedButton(
+                  onPressed: (imageProvider.image == null)
+                      ? null
+                      : () {
+                    textProvider.getText();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const ResultPage()));
+                  },
+                  child: const Text('Get OCR Text'),
+                ),
           ),
         ],
       ),

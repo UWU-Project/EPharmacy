@@ -5,6 +5,7 @@ import 'package:pill_pal/repositories/media_service.dart';
 
 class ImageViewModel extends BaseModel {
   ImageModel? _image;
+
   get image => _image;
 
   void getImage() async {

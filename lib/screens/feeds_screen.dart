@@ -6,6 +6,7 @@ import 'package:pill_pal/models%20&%20providers/wishlist.dart';
 import 'package:pill_pal/screens/wishlist/wishlist_screen.dart';
 import 'package:pill_pal/widgets/feeds_product.dart';
 import 'package:provider/provider.dart';
+
 import 'cart/cart_screen.dart';
 
 class FeedsScreen extends StatefulWidget {

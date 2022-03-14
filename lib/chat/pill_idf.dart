@@ -15,7 +15,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
-
 class ChatPage extends StatefulWidget {
   const ChatPage({Key? key}) : super(key: key);
 
@@ -93,7 +92,9 @@ class _ChatPageState extends State<ChatPage> {
     if (result != null && result.files.single.path != null) {
       final message = types.FileMessage(
         author: _user,
-        createdAt: DateTime.now().millisecondsSinceEpoch,
+        createdAt: DateTime
+            .now()
+            .millisecondsSinceEpoch,
         id: const Uuid().v4(),
         mimeType: lookupMimeType(result.files.single.path!),
         name: result.files.single.name,
@@ -118,7 +119,9 @@ class _ChatPageState extends State<ChatPage> {
 
       final message = types.ImageMessage(
         author: _user,
-        createdAt: DateTime.now().millisecondsSinceEpoch,
+        createdAt: DateTime
+            .now()
+            .millisecondsSinceEpoch,
         height: image.height.toDouble(),
         id: const Uuid().v4(),
         name: result.name,
@@ -137,10 +140,8 @@ class _ChatPageState extends State<ChatPage> {
     }
   }
 
-  void _handlePreviewDataFetched(
-      types.TextMessage message,
-      types.PreviewData previewData,
-      ) {
+  void _handlePreviewDataFetched(types.TextMessage message,
+      types.PreviewData previewData,) {
     final index = _messages.indexWhere((element) => element.id == message.id);
     final updatedMessage = _messages[index].copyWith(previewData: previewData);
 
@@ -154,7 +155,9 @@ class _ChatPageState extends State<ChatPage> {
   void _handleSendPressed(types.PartialText message) {
     final textMessage = types.TextMessage(
       author: _user,
-      createdAt: DateTime.now().millisecondsSinceEpoch,
+      createdAt: DateTime
+          .now()
+          .millisecondsSinceEpoch,
       id: const Uuid().v4(),
       text: message.text,
     );

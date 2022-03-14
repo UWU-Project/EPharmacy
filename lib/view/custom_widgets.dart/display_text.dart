@@ -3,6 +3,7 @@ import 'package:pill_pal/providers/text_provider.dart';
 
 class DisplayText extends StatelessWidget {
   final TextViewModel? textProvider;
+
   const DisplayText(this.textProvider, {Key? key}) : super(key: key);
 
   @override

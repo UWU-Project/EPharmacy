@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:pill_pal/providers/base_model.dart';
 import 'package:pill_pal/providers/text_provider.dart';
+import 'package:provider/provider.dart';
 
 import 'custom_widgets.dart/display_text.dart';
 

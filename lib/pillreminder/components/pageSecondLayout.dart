@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pill_pal/theme.dart';
 
 class PageSecondLayout extends StatelessWidget {
-  PageSecondLayout(
-      {
-        this.appBarTitle ='',
-        this.appBarRight = const SizedBox(height: 0, width: 0),
-        this.appBarLeading,
-        this.color = MyColors.Landing2,
-        this.topChild =  const SizedBox(height: 0, width: 0) ,
-        this.containerChild = const SizedBox(height: 0, width: 0) ,
-      });
+  PageSecondLayout({
+    this.appBarTitle = '',
+    this.appBarRight = const SizedBox(height: 0, width: 0),
+    this.appBarLeading,
+    this.color = MyColors.Landing2,
+    this.topChild = const SizedBox(height: 0, width: 0),
+    this.containerChild = const SizedBox(height: 0, width: 0),
+  });
 
   final Widget topChild;
   final Widget containerChild;
@@ -19,10 +18,9 @@ class PageSecondLayout extends StatelessWidget {
   final String appBarTitle;
   final Color color;
 
-
   @override
   Widget build(BuildContext context) {
-    final defaultPadding = MediaQuery. of(context). size. width / 20;
+    final defaultPadding = MediaQuery.of(context).size.width / 20;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -30,15 +28,12 @@ class PageSecondLayout extends StatelessWidget {
         titleSpacing: 30,
         title: Text(
           appBarTitle,
-          style:TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.normal,
-            letterSpacing: 0.6
-          ),
+          style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.normal,
+              letterSpacing: 0.6),
         ),
-        actions: [
-          appBarRight
-        ],
+        actions: [appBarRight],
         leading: appBarLeading,
         elevation: 0.0,
         backgroundColor: color,
@@ -46,8 +41,7 @@ class PageSecondLayout extends StatelessWidget {
           color: Colors.black, //change your color here
         ),
       ),
-      body:
-      ListView(
+      body: ListView(
         children: [
           Container(
             color: color,
@@ -73,7 +67,6 @@ class PageSecondLayout extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(defaultPadding, 0, defaultPadding, 60),
             child: containerChild,
           ),
-
         ],
       ),
     );

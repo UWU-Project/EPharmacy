@@ -110,12 +110,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   decoration: new BoxDecoration(
                     image: new DecorationImage(
                       fit: BoxFit.cover,
-
                       image: new ExactAssetImage('assets/blr.png'),
-
                     ),
                   ),
-
                   padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -254,7 +251,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount:
-                    productsList.length < 7 ? productsList.length : 7,
+                        productsList.length < 7 ? productsList.length : 7,
                     itemBuilder: (ctx, i) {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -281,6 +278,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 class _contentRow extends StatelessWidget {
   final String title;
   final String nameTitle;
+
   const _contentRow({
     required this.title,
     required this.nameTitle,
@@ -340,13 +338,13 @@ class _bottomSheet extends StatelessWidget {
                 onPressed: cartProvider.cartList.containsKey(productId)
                     ? () {}
                     : () {
-                  cartProvider.addToCart(
-                    productId,
-                    product.title,
-                    product.imageUrl,
-                    product.price,
-                  );
-                },
+                        cartProvider.addToCart(
+                          productId,
+                          product.title,
+                          product.imageUrl,
+                          product.price,
+                        );
+                      },
                 child: Text(
                   cartProvider.cartList.containsKey(productId)
                       ? 'IN CART'
@@ -390,9 +388,9 @@ class _bottomSheet extends StatelessWidget {
                 },
                 icon: wishlistProvider.wishlistList.containsKey(productId)
                     ? Icon(
-                  Icons.favorite,
-                  color: Colors.red,
-                )
+                        Icons.favorite,
+                        color: Colors.red,
+                      )
                     : Icon(Icons.favorite_border),
               ),
             ),
@@ -402,4 +400,3 @@ class _bottomSheet extends StatelessWidget {
     );
   }
 }
-

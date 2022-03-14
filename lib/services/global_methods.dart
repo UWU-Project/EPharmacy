@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pill_pal/screens/home_screen.dart';
 
 class GlobalMethods {
   Future<void> showDialogue(BuildContext context, VoidCallback callback) async {

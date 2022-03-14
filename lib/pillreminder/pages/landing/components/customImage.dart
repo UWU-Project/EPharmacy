@@ -7,16 +7,15 @@ class CustomImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final defaultPadding = MediaQuery. of(context). size. width / 20;
+    final defaultPadding = MediaQuery.of(context).size.width / 20;
 
     return Row(
       children: [
         Expanded(
-          child:
-          ConstrainedBox(
+          child: ConstrainedBox(
             constraints: BoxConstraints(
-              maxWidth: MediaQuery. of(context). size. width*0.9,
-              minWidth: MediaQuery. of(context). size. width*0.9,
+              maxWidth: MediaQuery.of(context).size.width * 0.9,
+              minWidth: MediaQuery.of(context).size.width * 0.9,
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: defaultPadding),
@@ -26,6 +25,5 @@ class CustomImage extends StatelessWidget {
         )
       ],
     );
-
   }
 }

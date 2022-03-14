@@ -7,6 +7,7 @@ import 'package:pill_pal/services/global_methods.dart';
 import 'package:pill_pal/services/stripe_payment.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
+
 import 'empty_cart.dart';
 import 'full_cart.dart';
 
@@ -170,8 +171,6 @@ Widget _bottomCheckoutSectiomn(BuildContext context, double totalAmount) {
                     'userName': _name,
                     'userNumber': number,
                     'adds': adds,
-
-
                   });
                 });
                 cartProvider.clearCart();

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pill_pal/screens/inner_screens/upload_product_screen.dart';
 
-
 class BackLayer extends StatelessWidget {
   const BackLayer({Key? key}) : super(key: key);
 
@@ -57,6 +56,7 @@ class BackLayer extends StatelessWidget {
 class _roatedBox extends StatelessWidget {
   final double top;
   final double left;
+
   const _roatedBox({
     required this.top,
     required this.left,
@@ -88,6 +88,7 @@ class _backLayerButton extends StatelessWidget {
   final String title;
   final IconData icon;
   final VoidCallback onPressed;
+
   const _backLayerButton({
     required this.title,
     required this.icon,

@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 class BrandsNavRailScreen extends StatefulWidget {
   static const routeName = '/brands-nav-rail';
+
   const BrandsNavRailScreen({Key? key}) : super(key: key);
 
   @override

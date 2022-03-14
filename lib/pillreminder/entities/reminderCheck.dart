@@ -8,8 +8,7 @@ import 'package:pill_pal/pillreminder/entities/reminder.dart';
         childColumns: ['reminder_id'],
         parentColumns: ['id'],
         entity: Reminder,
-        onDelete: ForeignKeyAction.cascade
-    ),
+        onDelete: ForeignKeyAction.cascade),
   ],
 )
 class ReminderCheck {
@@ -18,16 +17,15 @@ class ReminderCheck {
 
   @ColumnInfo(name: 'reminder_id')
   final int? reminderId;
+
   //added for repeated reminders check
   final DateTime scheduledDateTime;
   final DateTime checkedDateTime;
 
-
-  ReminderCheck(
-      {
-        this.id,
-        this.reminderId,
-        required this. scheduledDateTime,
-        required this.checkedDateTime,
-      });
+  ReminderCheck({
+    this.id,
+    this.reminderId,
+    required this.scheduledDateTime,
+    required this.checkedDateTime,
+  });
 }

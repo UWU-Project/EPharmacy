@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-
 class PillShape extends StatelessWidget {
   final double? elevation;
-  final Color  pillColor;
+  final Color pillColor;
   final String pillImage;
   final void Function()? onTap;
+
   const PillShape(
       {this.elevation = 4,
-        this.pillColor = Colors.black, required this.onTap , this.pillImage = 'assets/medicine.png'}
-        );
-
+      this.pillColor = Colors.black,
+      required this.onTap,
+      this.pillImage = 'assets/medicine.png'});
 
   @override
   Widget build(BuildContext context) {
-    return  GestureDetector(
-      onTap: onTap  ,
+    return GestureDetector(
+      onTap: onTap,
       child: Card(
         elevation: elevation,
         child: Container(
@@ -30,8 +30,16 @@ class PillShape extends StatelessWidget {
           child: Center(
             child: Stack(
               children: [
-                 Container(height: 60, width: 60, color: pillColor,),
-                 Image.asset(pillImage, height: 60, width: 60,),
+                Container(
+                  height: 60,
+                  width: 60,
+                  color: pillColor,
+                ),
+                Image.asset(
+                  pillImage,
+                  height: 60,
+                  width: 60,
+                ),
               ],
             ),
           ),
@@ -39,6 +47,4 @@ class PillShape extends StatelessWidget {
       ),
     );
   }
-
 }
-

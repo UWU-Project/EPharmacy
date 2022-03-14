@@ -22,7 +22,6 @@ import 'package:pill_pal/screens/auth/auth_stream.dart';
 import 'package:pill_pal/screens/home_screen.dart';
 import 'package:pill_pal/screens/landing_screen.dart';
 
-
 import 'package:pill_pal/theme.dart';
 import 'package:pill_pal/pillreminder/util/databaseTestUtil.dart';
 import 'package:pill_pal/pillreminder/util/notificationUtil.dart';
@@ -31,7 +30,6 @@ import 'package:timezone/data/latest.dart' as tz;
 
 import 'login/screens/home_screen.dart';
 import 'screens/auth/login_screen.dart';
-
 
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     new FlutterLocalNotificationsPlugin();
@@ -53,7 +51,8 @@ Future onSelectNotification(payload) async {
     DateTime? dateTime = DateTime.fromMillisecondsSinceEpoch(int.parse(value));
     await Navigator.pushNamedAndRemoveUntil(
         MyApp.navigatorKey.currentState!.context,
-        '/calender', ModalRoute.withName('/home'),
+        '/calender',
+        ModalRoute.withName('/home'),
         arguments: dateTime);
   }
 }
@@ -71,7 +70,6 @@ Future<void> main() async {
   final reminderCheckDao = database.reminderCheckDao;
 
   await addDatabaseDumpData(medicineDao, reminderDao);
-
 
   runApp(MyApp(
     reminderDao: reminderDao,
@@ -107,17 +105,14 @@ class MyApp extends StatelessWidget {
             '/': (context) => LandingScreen(),
             '/Login-screen': (context) => LoginScreen(),
             '/Auth-screen': (context) => AuthStateScreen(),
-
             '/homeScreen': (context) => HomeNew(
-              medicineDao: medicineDao,
-              reminderDao: reminderDao,
-              reminderCheckDao: reminderCheckDao,
-            ),
-
+                  medicineDao: medicineDao,
+                  reminderDao: reminderDao,
+                  reminderCheckDao: reminderCheckDao,
+                ),
             '/landing1': (context) => Landing1(),
             '/landing2': (context) => Landing2(),
             '/landing3': (context) => Landing3(),
-
             '/home': (context) => Home(
                   reminderDao: reminderDao,
                   reminderCheckDao: reminderCheckDao,
@@ -129,16 +124,15 @@ class MyApp extends StatelessWidget {
                   medicineDao: medicineDao,
                 ),
             '/reminder_add': (context) => ReminderAddPage(
-              medicineDao: medicineDao,
-                reminderDao: reminderDao,
-            ),
+                  medicineDao: medicineDao,
+                  reminderDao: reminderDao,
+                ),
             '/calender': (context) => Calender(
-              medicineDao: medicineDao,
-              reminderDao: reminderDao,
-              reminderCheckDao: reminderCheckDao,
-            ),
+                  medicineDao: medicineDao,
+                  reminderDao: reminderDao,
+                  reminderCheckDao: reminderCheckDao,
+                ),
           },
-
           onGenerateRoute: (settings) {
             if (settings.name == '/calender') {
               final passedDay = settings.arguments as DateTime;
@@ -182,8 +176,7 @@ class MyApp extends StatelessWidget {
             }
             //print('Need to implement ${settings.name}');
             return null;
-          }
-          ),
+          }),
     );
   }
 }

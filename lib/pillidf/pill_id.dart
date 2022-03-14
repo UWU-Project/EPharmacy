@@ -39,4 +39,3 @@ class PillID2 extends StatelessWidget {
     );
   }
 }
-

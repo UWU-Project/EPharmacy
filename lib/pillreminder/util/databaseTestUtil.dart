@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pill_pal/pillreminder/entities/medicine.dart';
 
 Future<void> addDatabaseDumpData(medicineDao, reminderDao) async {
-
   await medicineDao.deleteAllMedicine();
-  final med = Medicine(id:12, name: 'Paracetamol', pillColor: Colors.amber,
+  final med = Medicine(
+      id: 12,
+      name: 'Paracetamol',
+      pillColor: Colors.amber,
       //tags: ['After Breakfast', 'One hell of a very very long tag', 'Important!'],
       tags: ['After Breakfast'],
       desc: 'Paracetamol is a common painkiller used to treat aches and pain. '
@@ -12,8 +14,7 @@ Future<void> addDatabaseDumpData(medicineDao, reminderDao) async {
           ' It\'s available combined with other painkillers and anti-sickness medicines. '
           'It\'s also an ingredient in a wide range of cold and flu remedies.',
       supplyCurrent: 5,
-      supplyMin: 3
-  );
+      supplyMin: 3);
   await medicineDao.insertMedicine(med);
   await medicineDao.insertMedicine(Medicine(name: 'a'));
   await medicineDao.insertMedicine(Medicine(name: 'b'));
@@ -21,7 +22,8 @@ Future<void> addDatabaseDumpData(medicineDao, reminderDao) async {
   await medicineDao.insertMedicine(Medicine(name: 'd'));
 
   var dateTime = new DateTime.now();
-  dateTime = DateTime(dateTime.year, dateTime.month, dateTime.day, dateTime.hour, dateTime.minute);
+  dateTime = DateTime(dateTime.year, dateTime.month, dateTime.day,
+      dateTime.hour, dateTime.minute);
 
   await reminderDao.deleteAllReminders();
   // final reminder = Reminder(medicineId: 12,medicineName: 'Paracetamol' ,label: 'first reminder', dateTime: dateTime);
@@ -30,6 +32,4 @@ Future<void> addDatabaseDumpData(medicineDao, reminderDao) async {
   // final reminder2 = Reminder(medicineId: 12,medicineName: 'Paracetamol',  day: dateTime.weekday, label: 'cyclic reminder', repeated: true, dateTime: dateTime);
   // await reminderDao.insertReminder(reminder2);
   print('added');
-
-
 }

@@ -20,6 +20,7 @@ class Cart with ChangeNotifier {
 
 class CartProvider with ChangeNotifier {
   Map<String, Cart> _cartList = {};
+
   Map<String, Cart> get cartList => _cartList;
 
   double get totalAmount {
@@ -34,18 +35,18 @@ class CartProvider with ChangeNotifier {
     if (_cartList.containsKey(pId)) {
       _cartList.update(
           pId,
-              (value) => Cart(
-            cartId: value.cartId,
-            productId: value.productId,
-            title: value.title,
-            imageUrl: value.imageUrl,
-            price: value.price,
-            quantity: value.quantity + 1,
-          ));
+          (value) => Cart(
+                cartId: value.cartId,
+                productId: value.productId,
+                title: value.title,
+                imageUrl: value.imageUrl,
+                price: value.price,
+                quantity: value.quantity + 1,
+              ));
     } else {
       _cartList.putIfAbsent(
         pId,
-            () => Cart(
+        () => Cart(
             cartId: DateTime.now().toIso8601String(),
             productId: pId,
             title: title,
@@ -62,14 +63,14 @@ class CartProvider with ChangeNotifier {
     if (_cartList.containsKey(pId)) {
       _cartList.update(
           pId,
-              (value) => Cart(
-            cartId: value.cartId,
-            productId: value.productId,
-            title: value.title,
-            imageUrl: value.imageUrl,
-            price: value.price,
-            quantity: value.quantity - 1,
-          ));
+          (value) => Cart(
+                cartId: value.cartId,
+                productId: value.productId,
+                title: value.title,
+                imageUrl: value.imageUrl,
+                price: value.price,
+                quantity: value.quantity - 1,
+              ));
     }
     notifyListeners();
   }

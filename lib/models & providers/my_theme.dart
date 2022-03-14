@@ -10,11 +10,11 @@ class MyAppTheme {
       ),
       colorScheme: isDark
           ? const ColorScheme.dark(
-        onSecondary: Colors.white,
-      )
+              onSecondary: Colors.white,
+            )
           : const ColorScheme.light(
-        onSecondary: Colors.white,
-      ),
+              onSecondary: Colors.white,
+            ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: Colors.green,
       ),

@@ -4,6 +4,7 @@ import 'package:pill_pal/chat/pill_idf.dart';
 
 class ImageRetrive extends StatefulWidget {
   final String? userId;
+
   const ImageRetrive({Key? key, this.userId}) : super(key: key);
 
   @override
@@ -11,8 +12,6 @@ class ImageRetrive extends StatefulWidget {
 }
 
 class _ImageRetriveState extends State<ImageRetrive> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,46 +51,52 @@ class _ImageRetriveState extends State<ImageRetrive> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(12,0,0,0),
+                          padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(dt.toString(),
+                              Text(
+                                dt.toString(),
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                   // decoration: TextDecoration.underline,
                                   // decorationColor: Colors.red,
                                   // decorationStyle: TextDecorationStyle.wavy,
-                                ),),
-                              Text(state,
+                                ),
+                              ),
+                              Text(
+                                state,
                                 style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.bold,
                                   // decoration: TextDecoration.underline,
                                   // decorationColor: Colors.red,
                                   // decorationStyle: TextDecorationStyle.wavy,
-                                ),),
+                                ),
+                              ),
                             ],
                           ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(0,0,8,0),
-                        child: ElevatedButton(onPressed:(){
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (_) => const ChatPage()));
-                        },
+                        padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (_) => const ChatPage()));
+                          },
                           child: Text("Chat"),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(0,0,8,0),
-                        child: ElevatedButton(onPressed:(){
-                          showAlertDialog(context);
-                        },
-                        child: Text("View"),
+                        padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            showAlertDialog(context);
+                          },
+                          child: Text("View"),
                         ),
                       ),
                     ],
@@ -102,20 +107,15 @@ class _ImageRetriveState extends State<ImageRetrive> {
           }
         },
       ),
-
     );
-
   }
 }
 
-
-
 showAlertDialog(BuildContext context) {
-
   // set up the button
   Widget okButton = TextButton(
     child: Text("OK"),
-    onPressed: () { },
+    onPressed: () {},
   );
 
   // set up the AlertDialog
@@ -135,4 +135,3 @@ showAlertDialog(BuildContext context) {
     },
   );
 }
-

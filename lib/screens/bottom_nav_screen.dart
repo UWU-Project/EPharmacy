@@ -7,6 +7,7 @@ import 'package:pill_pal/screens/user_scren.dart';
 
 class BottomNavScreen extends StatefulWidget {
   static const routeName = '/Bottom-nav-screen';
+
   const BottomNavScreen({Key? key}) : super(key: key);
 
   @override

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pill_pal/models%20&%20providers/order.dart';
-import 'package:pill_pal/models%20&%20providers/product.dart';
 import 'package:pill_pal/services/global_methods.dart';
-import 'package:pill_pal/services/stripe_payment.dart';
 import 'package:provider/provider.dart';
-import '../home_screen.dart';
+
 import 'empty_order.dart';
 import 'full_order.dart';
 
@@ -33,25 +31,25 @@ class _OrderScreenState extends State<OrderScreen> {
         builder: (context, snapshot) {
           return orderProvider.getOrders.isEmpty
               ? const Scaffold(
-            body: EmptyOrder(),
-          )
+                  body: EmptyOrder(),
+                )
               : Scaffold(
-            appBar: AppBar(
-              title: Text('Order (${orderProvider.getOrders.length})'),
-            ),
-            body: Container(
-              margin: const EdgeInsets.only(bottom: 60),
-              child: ListView.builder(
-                itemCount: orderProvider.getOrders.length,
-                itemBuilder: (ctx, i) {
-                  return ChangeNotifierProvider.value(
-                    value: orderProvider.getOrders[i],
-                    child: FullOrder(),
-                  );
-                },
-              ),
-            ),
-          );
+                  appBar: AppBar(
+                    title: Text('Order (${orderProvider.getOrders.length})'),
+                  ),
+                  body: Container(
+                    margin: const EdgeInsets.only(bottom: 60),
+                    child: ListView.builder(
+                      itemCount: orderProvider.getOrders.length,
+                      itemBuilder: (ctx, i) {
+                        return ChangeNotifierProvider.value(
+                          value: orderProvider.getOrders[i],
+                          child: FullOrder(),
+                        );
+                      },
+                    ),
+                  ),
+                );
         });
   }
 }

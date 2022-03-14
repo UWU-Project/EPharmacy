@@ -1,11 +1,13 @@
 import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ImageUpload extends StatefulWidget {
   final String? userId;
+
   const ImageUpload({Key? key, this.userId}) : super(key: key);
 
   @override
@@ -48,8 +50,11 @@ class _ImageUploadState extends State<ImageUpload> {
         .collection("users")
         .doc(widget.userId)
         .collection("images")
-        .add({'downloadURL': downloadURL,'date': DateTime.now(),'state':'pending'}).whenComplete(
-            () => showSnackBar("Image Uploaded", Duration(seconds: 2)));
+        .add({
+      'downloadURL': downloadURL,
+      'date': DateTime.now(),
+      'state': 'pending'
+    }).whenComplete(() => showSnackBar("Image Uploaded", Duration(seconds: 2)));
   }
 
   @override
@@ -69,7 +74,11 @@ class _ImageUploadState extends State<ImageUpload> {
                     child: Column(children: [
                       const Text(
                         'Upload Prescription',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,decoration: TextDecoration.underline,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                       const SizedBox(
                         height: 10,
@@ -90,7 +99,8 @@ class _ImageUploadState extends State<ImageUpload> {
                                 Expanded(
                                     child: _image == null
                                         ? const Center(
-                                            child: Text("No Prescription selected"))
+                                            child: Text(
+                                                "No Prescription selected"))
                                         : Image.file(_image!)),
                                 ElevatedButton(
                                     onPressed: () {
@@ -112,10 +122,7 @@ class _ImageUploadState extends State<ImageUpload> {
                           ),
                         ),
                       )
-                    ]))
-
-            )),
-
+                    ])))),
       ),
     );
   }

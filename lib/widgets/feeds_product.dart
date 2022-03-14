@@ -106,7 +106,7 @@ class _FeedsProductState extends State<FeedsProduct> {
             badgeColor: Colors.greenAccent,
             borderRadius: BorderRadius.circular(8),
             badgeContent:
-            const Text('New', style: TextStyle(color: Colors.white)),
+                const Text('New', style: TextStyle(color: Colors.white)),
           ),
         ],
       ),

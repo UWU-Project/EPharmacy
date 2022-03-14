@@ -1,20 +1,12 @@
 import 'dart:io';
 
-import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:path/path.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:pill_pal/login/imageupload/image_retrive.dart';
 import 'package:pill_pal/login/imageupload/image_upload.dart';
 import 'package:pill_pal/login/models/user_model.dart';
-
-
 
 class PrescUpload extends StatefulWidget {
   const PrescUpload({Key? key}) : super(key: key);
@@ -42,7 +34,6 @@ class _PrescUploadState extends State<PrescUpload> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +41,6 @@ class _PrescUploadState extends State<PrescUpload> {
         title: const Text('Prescription BOX'),
         centerTitle: true,
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -60,20 +50,24 @@ class _PrescUploadState extends State<PrescUpload> {
               borderRadius: BorderRadius.circular(10),
               child: image != null
                   ? Image.file(
-                image!,
-                fit: BoxFit.cover,
-                width: MediaQuery.of(context).size.width * 0.8,
-              )
+                      image!,
+                      fit: BoxFit.cover,
+                      width: MediaQuery.of(context).size.width * 0.8,
+                    )
                   : Image.asset(
-                'assets/prescmi.png',
-                width: MediaQuery.of(context).size.width * 1,
-              ),
+                      'assets/prescmi.png',
+                      width: MediaQuery.of(context).size.width * 1,
+                    ),
             ),
             Column(
               children: [
                 const Text(
                   'Guidance to Upload Prescription.',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,decoration: TextDecoration.underline,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
                 const Text(
                   'Dont crop out any part of the image.',
@@ -87,25 +81,22 @@ class _PrescUploadState extends State<PrescUpload> {
                   'Medicines will be dispensed as per the Prescription',
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
-
               ],
             ),
-
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => ImageUpload(
-                          userId: loggedInUser.id,
-                        )));
+                              userId: loggedInUser.id,
+                            )));
               },
               style: ElevatedButton.styleFrom(
                   primary: Colors.lightBlue,
                   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                  textStyle: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold)),
+                  textStyle:
+                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
               child: const Text("Upload Prescription"),
             ),
             ElevatedButton(
@@ -119,9 +110,8 @@ class _PrescUploadState extends State<PrescUpload> {
               style: ElevatedButton.styleFrom(
                   primary: Colors.lightBlue,
                   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                  textStyle: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold)),
+                  textStyle:
+                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
               child: const Text("My Prescriptions"),
             ),
             const Text(
@@ -135,7 +125,6 @@ class _PrescUploadState extends State<PrescUpload> {
                 // decorationStyle: TextDecorationStyle.wavy,
               ),
             ),
-
           ],
         ),
       ),

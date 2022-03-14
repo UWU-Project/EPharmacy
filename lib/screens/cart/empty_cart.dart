@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pill_pal/screens/bottom_nav_screen.dart';
-import 'package:pill_pal/screens/feeds_screen.dart';
 
 class EmptyCart extends StatelessWidget {
   const EmptyCart({Key? key}) : super(key: key);
@@ -50,9 +49,8 @@ class EmptyCart extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                   primary: Colors.lightBlue,
                   padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                  textStyle: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold)),
+                  textStyle:
+                      TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
               child: const Text(
                 'Shop Now',
                 style: TextStyle(

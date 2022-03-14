@@ -9,11 +9,8 @@ import 'package:pill_pal/pillreminder/pages/medicineEditPage/components/PillShap
 import 'package:pill_pal/theme.dart';
 
 class MedicineAddPage extends StatefulWidget {
-  const MedicineAddPage({
-    Key? key,
-    required this.medicineDao
-  }) : super(key: key);
-
+  const MedicineAddPage({Key? key, required this.medicineDao})
+      : super(key: key);
 
   final MedicineDao medicineDao;
 
@@ -24,15 +21,15 @@ class MedicineAddPage extends StatefulWidget {
 class _MedicineAddPageState extends State<MedicineAddPage> {
   final _formKey = GlobalKey<FormState>();
 
-  String name ='';
-  String description ='';
-  double supplyCurrent =0;
-  double supplyMin=0;
-  double dose=1;
-  double capSize=0;
+  String name = '';
+  String description = '';
+  double supplyCurrent = 0;
+  double supplyMin = 0;
+  double dose = 1;
+  double capSize = 0;
   Color pillColor = Colors.teal;
   String pillShape = 'assets/medicine.png';
-  List<String> tags =[];
+  List<String> tags = [];
 
   final myTagController = TextEditingController();
 
@@ -44,29 +41,39 @@ class _MedicineAddPageState extends State<MedicineAddPage> {
 
   void changeColor(Color color) => setState(() => pillColor = color);
   final List<Color> pallet = [
-    Colors.deepPurple, Colors.blue ,  Colors.blueAccent, Colors.blue.shade200,
-    Colors.teal, Colors.green, Colors.lime, Colors.yellow.shade200,
-    Colors.pink.shade900, Colors.red, Colors.orange, Colors.amber,
-    Colors.brown, Colors.pink.shade200, Colors.grey.shade400, Colors.white
+    Colors.deepPurple,
+    Colors.blue,
+    Colors.blueAccent,
+    Colors.blue.shade200,
+    Colors.teal,
+    Colors.green,
+    Colors.lime,
+    Colors.yellow.shade200,
+    Colors.pink.shade900,
+    Colors.red,
+    Colors.orange,
+    Colors.amber,
+    Colors.brown,
+    Colors.pink.shade200,
+    Colors.grey.shade400,
+    Colors.white
   ];
 
-
-  Future<void> insertMedicine() async{
+  Future<void> insertMedicine() async {
     final med = Medicine(
-      name: name,
-      desc: description,
-      supplyCurrent: supplyCurrent,
-      supplyMin: supplyMin,
-      dose: dose,
-      capSize:capSize,
-      pillColor: pillColor,
-      pillShape: pillShape,
-      tags: tags
-    );
+        name: name,
+        desc: description,
+        supplyCurrent: supplyCurrent,
+        supplyMin: supplyMin,
+        dose: dose,
+        capSize: capSize,
+        pillColor: pillColor,
+        pillShape: pillShape,
+        tags: tags);
     await widget.medicineDao.insertMedicine(med);
   }
 
-  onSubmit(){
+  onSubmit() {
     _formKey.currentState!.save();
     insertMedicine().then((value) => null);
     Navigator.pop(context);
@@ -74,60 +81,59 @@ class _MedicineAddPageState extends State<MedicineAddPage> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> chips = tags
+        .map((tag) => Chip(
+              label: Text('$tag'),
+              backgroundColor: Color(0xFFEEEEEE),
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              onDeleted: () {
+                setState(() {
+                  tags.remove(tag);
+                });
+              },
+            ))
+        .toList();
 
-    List<Widget> chips = tags.map((tag) =>
-        Chip(
-          label: Text('$tag'),
-          backgroundColor: Color(0xFFEEEEEE),
-          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          onDeleted: (){setState(() {
-            tags.remove(tag);
-          });},
-        )
-    ).toList();
-
-    chips.add(
-        Chip(
-          onDeleted:(){},
-          deleteIcon: Icon(
-              Icons.sell,
-          ),
-          backgroundColor: MyColors.Landing2,
-          label: 
-          GestureDetector(
-            onTap: (){
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    content: SingleChildScrollView(
-                      child: TextFormField(
-                        controller: myTagController,
-                        autovalidateMode:AutovalidateMode.onUserInteraction,
-                        cursorColor: Theme.of(context).primaryColor,
-                        decoration: InputDecoration(
-                          labelText: 'Tag',
-                          labelStyle: TextStyle(
-                              color: Colors.black54
+    chips.add(Chip(
+      onDeleted: () {},
+      deleteIcon: Icon(
+        Icons.sell,
+      ),
+      backgroundColor: MyColors.Landing2,
+      label: GestureDetector(
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  content: SingleChildScrollView(
+                    child: TextFormField(
+                      controller: myTagController,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      cursorColor: Theme.of(context).primaryColor,
+                      decoration: InputDecoration(
+                        labelText: 'Tag',
+                        labelStyle: TextStyle(color: Colors.black54),
+                        focusColor: Theme.of(context).primaryColor,
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.grey,
                           ),
-                          focusColor: Theme.of(context).primaryColor,
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide( color: Colors.grey,),
-                          ),
-                          focusedBorder:  UnderlineInputBorder(
-                            borderSide:  BorderSide( color: Theme.of(context).primaryColor),
-                          ),
-
                         ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter tag text';
-                          }
-                          return null;
-                        },
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Theme.of(context).primaryColor),
+                        ),
                       ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter tag text';
+                        }
+                        return null;
+                      },
                     ),
-                    actions: [
+                  ),
+                  actions: [
                     TextButton(
                       child: Text("Add"),
                       onPressed: () {
@@ -136,17 +142,15 @@ class _MedicineAddPageState extends State<MedicineAddPage> {
                           Navigator.pop(context);
                         });
                       },
-                      )
-                    ],
-                  );
-                },
-              );
-            },
-              child: Text('Add Tag')
-          ),
-          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        ));
-
+                    )
+                  ],
+                );
+              },
+            );
+          },
+          child: Text('Add Tag')),
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    ));
 
     return PageFirstLayout(
       appBarTitle: 'Add Pill',
@@ -157,216 +161,251 @@ class _MedicineAddPageState extends State<MedicineAddPage> {
             if (_formKey.currentState!.validate()) {
               onSubmit();
             }
-          }
-      ),
+          }),
       containerChild: ListView(
         children: [
-        Form(
-        key: _formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomUnderLineInput(
-              labelText: 'Name',
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter medicine name';
-                }
-                return null;
-              },
-              onSaved: (value){setState(() {
-                name = value ?? '';
-              });},
-            ),
-            SizedBox(height: 24,),
-            CustomUnderLineInput(
-              keyboardType: TextInputType.multiline,
-              maxLines: null,
-              labelText: 'Description',
-              onSaved: (value){setState(() {
-                description = value ?? '';
-              });},
-            ),
-            SizedBox(height: 24,),
-            Row(
+          Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Flexible(
-                  child: CustomUnderLineInput(
-                    labelText: 'Current Supply',
-                    suffixText: 'pills',
-                    initialValue: '0',
-                    validator: (value) {
-                      if (value == null || value.isEmpty || double.tryParse('$value').runtimeType != double) {
-                        return 'Please enter a number';
-                      }
-                      return null;
-                    },
-                    onSaved: (value){setState(() {
-                      supplyCurrent = double.tryParse('$value')?? 0;
-                    });},
-                  ),
-                ),
-                SizedBox(width: 24,),
-                Flexible(
-                  child: CustomUnderLineInput(
-                    labelText: 'Minimum Supply',
-                    suffixText: 'pills',
-                    initialValue: '0',
-                    validator: (value) {
-                      if (value == null || value.isEmpty || double.tryParse('$value').runtimeType != double ) {
-                        return 'Please enter a number';
-                      }
-                      return null;
-                    },
-                    onSaved: (value){setState(() {
-                      supplyMin = double.tryParse('$value')?? 0;
-                    });},
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 24,),
-            Row(
-              children: [
-                Flexible(child: CustomUnderLineInput(
-                  labelText: 'Dose',
-                  suffixText: 'pill/dose',
-                  initialValue: '1',
+                CustomUnderLineInput(
+                  labelText: 'Name',
                   validator: (value) {
-                    if (value == null || value.isEmpty || double.tryParse('$value').runtimeType != double ) {
-                      return 'Please enter a number';
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter medicine name';
                     }
                     return null;
                   },
-                  onSaved: (value){setState(() {
-                    dose = double.tryParse('$value') ?? 0;
-                  });},
-                ),),
-                SizedBox(width: 24,),
-                Flexible(
-                  child: CustomUnderLineInput(
-                    labelText: 'Strength',
-                    suffixText: 'mg',
-                    initialValue: '0',
-                    validator: (value) {
-                      if (!(value == null || value.isEmpty)) {
-                        if (double
-                            .tryParse('$value')
-                            .runtimeType != double) {
-                          return 'Please enter a number';
-                        }
-                      }
-                      return null;
-                    },
-                    onSaved: (value){setState(() {
-                      capSize = double.tryParse('$value')?? 0;
-                    });},
+                  onSaved: (value) {
+                    setState(() {
+                      name = value ?? '';
+                    });
+                  },
+                ),
+                SizedBox(
+                  height: 24,
+                ),
+                CustomUnderLineInput(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  labelText: 'Description',
+                  onSaved: (value) {
+                    setState(() {
+                      description = value ?? '';
+                    });
+                  },
+                ),
+                SizedBox(
+                  height: 24,
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: CustomUnderLineInput(
+                        labelText: 'Current Supply',
+                        suffixText: 'pills',
+                        initialValue: '0',
+                        validator: (value) {
+                          if (value == null ||
+                              value.isEmpty ||
+                              double.tryParse('$value').runtimeType != double) {
+                            return 'Please enter a number';
+                          }
+                          return null;
+                        },
+                        onSaved: (value) {
+                          setState(() {
+                            supplyCurrent = double.tryParse('$value') ?? 0;
+                          });
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 24,
+                    ),
+                    Flexible(
+                      child: CustomUnderLineInput(
+                        labelText: 'Minimum Supply',
+                        suffixText: 'pills',
+                        initialValue: '0',
+                        validator: (value) {
+                          if (value == null ||
+                              value.isEmpty ||
+                              double.tryParse('$value').runtimeType != double) {
+                            return 'Please enter a number';
+                          }
+                          return null;
+                        },
+                        onSaved: (value) {
+                          setState(() {
+                            supplyMin = double.tryParse('$value') ?? 0;
+                          });
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 24,
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                      child: CustomUnderLineInput(
+                        labelText: 'Dose',
+                        suffixText: 'pill/dose',
+                        initialValue: '1',
+                        validator: (value) {
+                          if (value == null ||
+                              value.isEmpty ||
+                              double.tryParse('$value').runtimeType != double) {
+                            return 'Please enter a number';
+                          }
+                          return null;
+                        },
+                        onSaved: (value) {
+                          setState(() {
+                            dose = double.tryParse('$value') ?? 0;
+                          });
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 24,
+                    ),
+                    Flexible(
+                      child: CustomUnderLineInput(
+                        labelText: 'Strength',
+                        suffixText: 'mg',
+                        initialValue: '0',
+                        validator: (value) {
+                          if (!(value == null || value.isEmpty)) {
+                            if (double.tryParse('$value').runtimeType !=
+                                double) {
+                              return 'Please enter a number';
+                            }
+                          }
+                          return null;
+                        },
+                        onSaved: (value) {
+                          setState(() {
+                            capSize = double.tryParse('$value') ?? 0;
+                          });
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 24,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          backgroundColor: Colors.black87,
+                          title: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Select a color',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              IconButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  icon: Icon(
+                                    Icons.arrow_forward,
+                                    color: Colors.white,
+                                  ))
+                            ],
+                          ),
+                          content: SingleChildScrollView(
+                            child: BlockPicker(
+                              pickerColor: pillColor,
+                              onColorChanged: changeColor,
+                              availableColors: pallet,
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  child: TextFormField(
+                    enabled: false,
+                    decoration: InputDecoration(
+                      labelText: 'Pill Color',
+                      labelStyle: TextStyle(color: Colors.black54),
+                      disabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ],
-            ),
-            SizedBox(height: 24,),
-            GestureDetector(
-             onTap:(){
-               showDialog(
-                   context: context,
-                   builder: (BuildContext context) {
-                 return AlertDialog(
-                   backgroundColor: Colors.black87,
-                   title: Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                     children: [
-                       Text('Select a color', style: TextStyle(color: Colors.white),),
-                       IconButton(onPressed: (){
-                         Navigator.pop(context);
-                       },
-                       icon: Icon(Icons.arrow_forward, color: Colors.white,)
-                      )
-                     ],
-                   ),
-                   content: SingleChildScrollView(
-                     child: 
-                     BlockPicker(
-                       pickerColor: pillColor,
-                       onColorChanged: changeColor,
-                       availableColors: pallet,
-                     ),
-                   ),
-                 );
-               },
-               );
-             },
-             child: TextFormField(
-              enabled: false,
-              decoration: InputDecoration(
-                labelText: 'Pill Color',
-                labelStyle: TextStyle(
-                    color: Colors.black54
+                SizedBox(
+                  height: 24,
                 ),
-
-                disabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide( color: Colors.grey,),
+                // ConstrainedBox(
+                // constraints: BoxConstraints(
+                // maxHeight: 100,
+                // minWidth: 100
+                // ),
+                // child: ListView(
+                // scrollDirection: Axis.horizontal,
+                // children:[])),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    PillShape(
+                        elevation: pillShape == 'assets/capsule.png' ? 10 : 0,
+                        pillImage: 'assets/capsule.png',
+                        pillColor: pillColor,
+                        onTap: () {
+                          setState(() {
+                            pillShape = 'assets/capsule.png';
+                          });
+                        }),
+                    PillShape(
+                        elevation:
+                            pillShape == 'assets/roundedpill.png' ? 10 : 0,
+                        pillImage: 'assets/roundedpill.png',
+                        pillColor: pillColor,
+                        onTap: () {
+                          setState(() {
+                            pillShape = 'assets/roundedpill.png';
+                          });
+                        }),
+                    PillShape(
+                        elevation: pillShape == 'assets/medicine.png' ? 10 : 0,
+                        pillImage: 'assets/medicine.png',
+                        pillColor: pillColor,
+                        onTap: () {
+                          setState(() {
+                            pillShape = 'assets/medicine.png';
+                          });
+                        }),
+                  ],
                 ),
-
-              ),
-          ),
-           ),
-            SizedBox(height: 24,),
-            // ConstrainedBox(
-            // constraints: BoxConstraints(
-            // maxHeight: 100,
-            // minWidth: 100
-            // ),
-            // child: ListView(
-            // scrollDirection: Axis.horizontal,
-            // children:[])),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                PillShape(
-                    elevation: pillShape== 'assets/capsule.png' ? 10: 0,
-                    pillImage: 'assets/capsule.png',
-                    pillColor: pillColor,
-                    onTap: (){
-                      setState(() {
-                        pillShape = 'assets/capsule.png';
-                      });
-                }
+                SizedBox(
+                  height: 24,
                 ),
-                PillShape(
-                    elevation: pillShape== 'assets/roundedpill.png' ? 10: 0,
-                    pillImage: 'assets/roundedpill.png',
-                    pillColor: pillColor,
-                    onTap: (){
-                      setState(() {
-                        pillShape = 'assets/roundedpill.png';
-                      });
-                    }
+                Wrap(
+                  runSpacing: 2,
+                  spacing: 5,
+                  children: chips,
                 ),
-                PillShape(
-                    elevation: pillShape== 'assets/medicine.png' ? 10: 0,
-                    pillImage: 'assets/medicine.png',
-                    pillColor: pillColor,
-                    onTap: (){
-                      setState(() {
-                        pillShape = 'assets/medicine.png';
-                      });
-                    }
+                SizedBox(
+                  height: 32,
                 ),
               ],
             ),
-            SizedBox(height: 24,),
-            Wrap(
-              runSpacing: 2,
-              spacing: 5,
-              children: chips,
-            ),
-            SizedBox(height: 32,),
-
-          ],
-        ),
-      )
-
+          )
         ],
       ),
     );

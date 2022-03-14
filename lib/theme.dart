@@ -10,7 +10,7 @@ class MyColors {
   static const Color MiddleBlueGreen = const Color(0xFF83CBC8);
 
   static const Color Landing1 = const Color.fromRGBO(226, 249, 219, 1.0);
-  static const Color Landing2 = const Color.fromRGBO(193, 229, 227 ,1);
+  static const Color Landing2 = const Color.fromRGBO(193, 229, 227, 1);
   static const Color Landing3 = const Color.fromRGBO(204, 255, 217, 1.0);
 }
 
@@ -42,14 +42,11 @@ ThemeData _buildCustomTheme() {
     cardColor: Colors.white,
     errorColor: MyColors.MiddleBlueGreen,
     buttonTheme: ButtonThemeData(
-      colorScheme: myColorScheme,
-      textTheme: ButtonTextTheme.normal,
-      shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18.0),
-      )
-
-
-    ),
+        colorScheme: myColorScheme,
+        textTheme: ButtonTextTheme.normal,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18.0),
+        )),
     textTheme: _buildCustomTextTheme(base.textTheme),
     primaryTextTheme: _buildCustomTextTheme(base.primaryTextTheme),
     accentTextTheme: _buildCustomTextTheme(base.accentTextTheme),
@@ -59,14 +56,9 @@ ThemeData _buildCustomTheme() {
 TextTheme _buildCustomTextTheme(TextTheme base) {
   return base
       .copyWith(
-    caption: base.caption?.copyWith(
-      color: Colors.black
-    ),
-    button: base.button?.copyWith(
-      letterSpacing: 0.7
-    )
-  ).apply(
-    fontFamily: 'Raleway',
-  );
+          caption: base.caption?.copyWith(color: Colors.black),
+          button: base.button?.copyWith(letterSpacing: 0.7))
+      .apply(
+        fontFamily: 'Raleway',
+      );
 }
-

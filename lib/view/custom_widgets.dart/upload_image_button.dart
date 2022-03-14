@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final String? text;
   final Function()? onTap;
+
   const CustomButton({
     this.onTap,
     this.text,

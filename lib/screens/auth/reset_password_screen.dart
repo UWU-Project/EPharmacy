@@ -14,7 +14,6 @@ class ResetPasswordScreen extends StatefulWidget {
 }
 
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
-
   double _headerHeight = 250;
 
   final _formKey = GlobalKey<FormState>();
@@ -61,11 +60,10 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
         children: [
           Container(
             height: _headerHeight,
-            child:
-            HeaderWidget(_headerHeight, true, Icons.reset_tv_rounded), //let's create a common header widget
+            child: HeaderWidget(_headerHeight, true,
+                Icons.reset_tv_rounded), //let's create a common header widget
           ),
           const SizedBox(height: 130),
-
           Form(
             key: _formKey,
             child: Padding(
@@ -75,7 +73,6 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const SizedBox(height: 150),
-
                     Text(
                       'Reset Password',
                       style: TextStyle(color: Colors.white),

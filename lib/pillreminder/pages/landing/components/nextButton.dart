@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NextButton extends StatelessWidget {
-
   final String nextRoute;
+
   const NextButton(this.nextRoute);
 
   @override
@@ -17,12 +17,13 @@ class NextButton extends StatelessWidget {
           ),
           onPressed: () {
             if (nextRoute == '/home') {
-              Navigator.pushNamedAndRemoveUntil(context, nextRoute, (route) => false);
-            }else {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, nextRoute, (route) => false);
+            } else {
               Navigator.pushNamed(context, nextRoute);
             }
           },
-          child: Text("${nextRoute == '/home'? 'START': 'NEXT'}"),
+          child: Text("${nextRoute == '/home' ? 'START' : 'NEXT'}"),
         ),
       ],
     );
